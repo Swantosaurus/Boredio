@@ -14,16 +14,26 @@ CREATE TABLE ActivityDatabaseModel (
     userRating INTEGER,
     fetchDate INTEGER NOT NULL,
     completed INTEGER AS Boolean NOT NULL,
-    completeDate INTEGER
+    completeDate INTEGER,
+    ignore INTEGER AS Boolean NOT NULL
 );
 
 
 insertActivity:
-INSERT INTO ActivityDatabaseModel (activity, type, participants, price, link, key, accessibility, favorite, userRating, fetchDate, completed, completeDate)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+INSERT INTO ActivityDatabaseModel (activity, type, participants, price, link, key, accessibility, favorite, userRating, fetchDate, completed, completeDate, ignore)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 selectAllActivities:
 SELECT * FROM ActivityDatabaseModel;
 
 selectActivityByKey:
 SELECT * FROM ActivityDatabaseModel WHERE key = ?;
+
+selectAllIgnoredActivities:
+SELECT * FROM ActivityDatabaseModel WHERE ignore = 1;
+
+selectAllCompletedActivities:
+SELECT * FROM ActivityDatabaseModel WHERE completed = 1;
+
+selectAllFavoriteActivities:
+SELECT * FROM ActivityDatabaseModel WHERE favorite = 1;

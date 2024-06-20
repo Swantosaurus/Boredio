@@ -1,7 +1,10 @@
-package com.swantosaurus.boredio.dataSource.activity.model
+package com.swantosaurus.boredio.activity.model
 
 import kotlinx.datetime.LocalDateTime
 
+/**
+ * in app representation of an activity
+ */
 data class Activity(
     val activity: String,
     val type: ActivityType,
@@ -14,7 +17,8 @@ data class Activity(
     val userRating: Int?,
     val fetchDate: LocalDateTime,
     val completed: Boolean,
-    val completeDate: LocalDateTime?
+    val completeDate: LocalDateTime?,
+    val ignore: Boolean
 )
 
 enum class ActivityType {

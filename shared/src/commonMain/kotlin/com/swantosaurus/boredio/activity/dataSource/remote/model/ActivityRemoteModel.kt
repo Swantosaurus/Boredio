@@ -1,4 +1,4 @@
-package com.swantosaurus.boredio.dataSource.activity.remote.model
+package com.swantosaurus.boredio.activity.dataSource.remote.model
 
 import kotlinx.serialization.Serializable
 

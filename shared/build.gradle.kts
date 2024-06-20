@@ -35,6 +35,7 @@ kotlin {
             implementation(libs.ktor.serialization)
             implementation(libs.koin.core)
             implementation(libs.kotlinx.datetime)
+            implementation(libs.logging.kermit)
         }
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)
