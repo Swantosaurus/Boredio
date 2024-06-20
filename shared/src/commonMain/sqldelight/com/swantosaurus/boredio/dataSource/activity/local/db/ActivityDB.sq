@@ -1,0 +1,29 @@
+
+
+import kotlin.Boolean;
+
+CREATE TABLE ActivityDatabaseModel (
+    activity TEXT NOT NULL,
+    type TEXT NOT NULL,
+    participants INTEGER NOT NULL,
+    price REAL NOT NULL,
+    link TEXT NOT NULL,
+    key TEXT NOT NULL,
+    accessibility REAL NOT NULL,
+    favorite INTEGER NOT NULL,
+    userRating INTEGER,
+    fetchDate INTEGER NOT NULL,
+    completed INTEGER AS Boolean NOT NULL,
+    completeDate INTEGER
+);
+
+
+insertActivity:
+INSERT INTO ActivityDatabaseModel (activity, type, participants, price, link, key, accessibility, favorite, userRating, fetchDate, completed, completeDate)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+selectAllActivities:
+SELECT * FROM ActivityDatabaseModel;
+
+selectActivityByKey:
+SELECT * FROM ActivityDatabaseModel WHERE key = ?;
