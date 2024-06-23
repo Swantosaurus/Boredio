@@ -36,6 +36,8 @@ kotlin {
             implementation(libs.koin.core)
             implementation(libs.kotlinx.datetime)
             implementation(libs.logging.kermit)
+            api(libs.dataStore.preferences)
+            api(libs.dataStore)
         }
         androidMain.dependencies {
             implementation(libs.ktor.client.okhttp)

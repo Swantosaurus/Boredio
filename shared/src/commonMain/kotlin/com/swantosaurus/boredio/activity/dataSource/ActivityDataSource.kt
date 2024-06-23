@@ -4,9 +4,11 @@ import com.swantosaurus.boredio.activity.model.Activity
 
 
 interface ActivityDataSource {
-    suspend fun getNewRandom() : Activity?
+    suspend fun getDailyFeed(): List<Activity>?
 
-    suspend fun storeActivity(activity: Activity)
+    suspend fun getNewRandom(isDailyFeed: Boolean = true) : Activity?
+
+    suspend fun storeActivity(activity: Activity): Activity
 
     suspend fun getActivityByKey(key: String) : Activity?
 

@@ -1,8 +1,6 @@
 [versions]
 agp = "8.2.2"
 kotlin = "2.0.0"
-compose = "1.6.8"
-compose-material3 = "1.2.1"
 androidx-activityCompose = "1.9.0"
 ktor = "2.3.11"
 coroutines = "1.8.1"
@@ -12,6 +10,11 @@ skie = "0.8.2"
 kotlinx-datetime = "0.6.0"
 sqlDelight = "2.0.2"
 kermit = "2.0.4"
+compose-bom = "2024.06.00"
+compose = "1.6.8"
+compose-material3 = "1.2.1"
+nav-version = "2.7.7"
+data-store = "1.1.1"
 
 
 
@@ -22,7 +25,7 @@ compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
 compose-ui-tooling = { module = "androidx.compose.ui:ui-tooling", version.ref = "compose" }
 compose-ui-tooling-preview = { module = "androidx.compose.ui:ui-tooling-preview", version.ref = "compose" }
 compose-foundation = { module = "androidx.compose.foundation:foundation", version.ref = "compose" }
-compose-material3 = { module = "androidx.compose.material3:material3", version.ref = "compose-material3" }
+compose-material3 = { module = "androidx.compose.material3:material3" }
 ktor-client-core = { module = "io.ktor:ktor-client-core", version.ref = "ktor" }
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktor" }
 ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "ktor" }
@@ -42,6 +45,14 @@ kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.
 sqlDelight-nativeDriver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }
 sqlDelight-androidDriver = { module = "app.cash.sqldelight:android-driver", version.ref = "sqlDelight" }
 logging-kermit = { module = "co.touchlab:kermit", version.ref = "kermit" }
+compose-bom = { module = "androidx.compose:compose-bom", version.ref = "compose-bom" }
+compose-animation = { module = "androidx.compose.animation:animation" }
+compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "nav-version"}
+dataStore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "data-store" }
+dataStore = { module = "androidx.datastore:datastore", version.ref = "data-store" }
+
+
+
 
 
 [plugins]

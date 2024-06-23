@@ -3,25 +3,31 @@
 import kotlin.Boolean;
 
 CREATE TABLE ActivityDatabaseModel (
+    key TEXT NOT NULL PRIMARY KEY,
     activity TEXT NOT NULL,
     type TEXT NOT NULL,
     participants INTEGER NOT NULL,
     price REAL NOT NULL,
     link TEXT NOT NULL,
-    key TEXT NOT NULL,
     accessibility REAL NOT NULL,
     favorite INTEGER NOT NULL,
     userRating INTEGER,
     fetchDate INTEGER NOT NULL,
     completed INTEGER AS Boolean NOT NULL,
     completeDate INTEGER,
-    ignore INTEGER AS Boolean NOT NULL
+    ignore INTEGER AS Boolean NOT NULL,
+    isDailyFeed INTEGER AS Boolean NOT NULL
 );
 
 
 insertActivity:
-INSERT INTO ActivityDatabaseModel (activity, type, participants, price, link, key, accessibility, favorite, userRating, fetchDate, completed, completeDate, ignore)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+INSERT INTO ActivityDatabaseModel (activity, type, participants, price, link, key, accessibility, favorite, userRating, fetchDate, completed, completeDate, ignore, isDailyFeed)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+
+updateActivity:
+UPDATE ActivityDatabaseModel
+SET activity = ?, type = ?, participants = ?, price = ?, link = ?, accessibility = ?, favorite = ?, userRating = ?, fetchDate = ?, completed = ?, completeDate = ?, ignore = ?, isDailyFeed = ?
+WHERE key = ?;
 
 selectAllActivities:
 SELECT * FROM ActivityDatabaseModel;
@@ -37,3 +43,6 @@ SELECT * FROM ActivityDatabaseModel WHERE completed = 1;
 
 selectAllFavoriteActivities:
 SELECT * FROM ActivityDatabaseModel WHERE favorite = 1;
+
+getDailyFeed:
+SELECT * FROM ActivityDatabaseModel WHERE ActivityDatabaseModel.isDailyFeed = 1;

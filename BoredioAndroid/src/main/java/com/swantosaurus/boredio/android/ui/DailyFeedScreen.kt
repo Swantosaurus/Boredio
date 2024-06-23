@@ -1,0 +1,151 @@
+package com.swantosaurus.boredio.android.ui
+
+import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.aspectRatio
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.grid.GridCells
+import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
+import androidx.compose.foundation.lazy.grid.items
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Delete
+import androidx.compose.material.icons.filled.Refresh
+import androidx.compose.material3.Card
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
+import androidx.compose.material3.TopAppBar
+import androidx.compose.material3.TopAppBarDefaults
+import androidx.compose.material3.TopAppBarScrollBehavior
+import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.input.nestedscroll.nestedScroll
+import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.dp
+import com.swantosaurus.boredio.activity.model.Activity
+import com.swantosaurus.boredio.android.R
+import com.swantosaurus.boredio.screens.DailyFeedState
+import com.swantosaurus.boredio.screens.DailyFeedViewModel
+import org.koin.androidx.compose.koinViewModel
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun DailyFeedScreen(
+    dailyFeedViewModel: DailyFeedViewModel = koinViewModel()
+) {
+    val feedState by dailyFeedViewModel.dailyFeedState.collectAsState()
+    val rolls by dailyFeedViewModel.rerolls.collectAsState(initial = 3)
+    val rerollState by dailyFeedViewModel.dayReloadState.collectAsState()
+    val scrollBehavior = TopAppBarDefaults.pinnedScrollBehavior()
+
+    Scaffold(modifier = Modifier.nestedScroll(scrollBehavior.nestedScrollConnection),
+        topBar = { TopBar(scrollBehavior = scrollBehavior, rerolls = rolls!!) }) { paddingValues ->
+            Column(Modifier.padding(paddingValues)) {
+                TextButton(onClick = { dailyFeedViewModel.test() }) {
+                    Text("test")
+                }
+                when (feedState) {
+                    is DailyFeedState.Loading -> {
+                        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                            CircularProgressIndicator()
+                        }
+                    }
+
+                    is DailyFeedState.Error -> {
+                        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+                            TextButton(onClick = { dailyFeedViewModel.retryInit() }) {
+                                Text(text = stringResource(id = R.string.reloadButton))
+                            }
+                        }
+                    }
+
+                    is DailyFeedState.Ready -> {
+                        DailyFeedBody(
+                            (feedState as DailyFeedState.Ready).dailyActivities,
+                            dailyFeedViewModel::reroll,
+                            dailyFeedViewModel::complete,
+                            dailyFeedViewModel::ignore
+                        )
+                    }
+                }
+            }
+
+    }
+}
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+private fun TopBar(
+    scrollBehavior: TopAppBarScrollBehavior, rerolls: Int
+) {
+    TopAppBar(title = {
+        Text(text = stringResource(id = R.string.dailyFeedScreenTitle))
+    }, scrollBehavior = scrollBehavior, actions = {
+        Text(text = stringResource(id = R.string.rerolls) + ":$rerolls")
+    })
+}
+
+@Composable
+private fun DailyFeedBody(
+    activities: List<Activity>,
+    reroll: (activity: Activity, onNoRerolls: () -> Unit) -> Unit,
+    complete: (activity: Activity, rating: Int?) -> Unit,
+    ignore: (activity: Activity) -> Unit
+) {
+    LazyVerticalGrid(
+        columns = GridCells.Adaptive(200.dp),
+        verticalArrangement = Arrangement.spacedBy(8.dp),
+        horizontalArrangement = Arrangement.spacedBy(8.dp),
+    ) {
+        items(activities, key = { it.key }) {
+            ActivityBox(activity = it, reroll, complete, ignore)
+        }
+    }
+}
+
+@Composable
+private fun ActivityBox(
+    activity: Activity,
+    reroll: (activity: Activity, onNoRerolls: () -> Unit) -> Unit,
+    complete: (activity: Activity, rating: Int?) -> Unit,
+    ignore: (activity: Activity) -> Unit
+) {
+    Card(modifier = Modifier
+        .fillMaxSize()
+        .aspectRatio(1f),
+        onClick = { complete(activity, /*TODO rating*/0) }
+    ) {
+        //TODO async Image
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(Color(0, 0, 0, (255 * 0.3).toInt()))
+        ) {
+            Text(modifier = Modifier.fillMaxWidth(), text = activity.activity, textAlign = TextAlign.Center, style = MaterialTheme.typography.headlineLarge)
+            IconButton(onClick = { ignore(activity) }) {
+                Icon(imageVector = Icons.Default.Delete, contentDescription = null)
+            }
+            IconButton(onClick = {
+                reroll(activity, {//TODO on no rerolls
+                })
+            }) {
+                Icon(imageVector = Icons.Default.Refresh, contentDescription = null)
+            }
+        }
+    }
+
+}
