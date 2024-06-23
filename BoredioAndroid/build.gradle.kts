@@ -13,6 +13,13 @@ android {
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
+
+        //API key is in the local.properties file
+        buildConfigField(
+            "String",
+            "OPEN_AI_API_KEY",
+            "\"${project.findProperty("OPEN_AI_API_KEY") ?: ""}\""
+        )
     }
     buildFeatures {
         compose = true
