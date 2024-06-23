@@ -29,7 +29,8 @@ fun ActivityRemoteModel.toActivity(isDailyFeed: Boolean): Activity {
         completed = false,
         completeDate = null,
         ignore = false,
-        isDailyFeed = isDailyFeed
+        isDailyFeed = isDailyFeed,
+        path = null
     )
 }
 
@@ -51,7 +52,8 @@ fun Activity.toDatabaseModel(): ActivityDatabaseModel {
         completed = completed,
         completeDate = completeMillis,
         ignore = ignore,
-        isDailyFeed = isDailyFeed
+        isDailyFeed = isDailyFeed,
+        path = path
     )
 }
 
@@ -76,6 +78,7 @@ fun ActivityDatabaseModel.toActivity(): Activity {
         completed = completed,
         completeDate = completeDate,
         ignore = ignore,
-        isDailyFeed = isDailyFeed
+        isDailyFeed = isDailyFeed,
+        path = path
     )
 }

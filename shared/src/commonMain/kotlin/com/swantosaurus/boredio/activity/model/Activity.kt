@@ -19,7 +19,8 @@ data class Activity(
     val completed: Boolean,
     val completeDate: LocalDateTime?,
     val ignore: Boolean,
-    val isDailyFeed: Boolean
+    val isDailyFeed: Boolean,
+    val path: String?
 )
 
 enum class ActivityType {

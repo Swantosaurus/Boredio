@@ -10,12 +10,12 @@ import org.koin.dsl.module
 
 actual val platformModule = module {
     factory<DatabaseDriverFactory> {
-        AndroidDatabaseDriverFactory(get())
+        AndroidDatabaseDriverFactory(context = get())
     }
     single {
         createDataStore()
     }
     viewModel {
-        DailyFeedViewModel(get(), get(), get())
+        DailyFeedViewModel(activityDataSource = get(), preferences = get())
     }
 }

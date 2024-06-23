@@ -1,11 +1,13 @@
 [versions]
 agp = "8.2.2"
+coil = "2.6.0"
 kotlin = "2.0.0"
 androidx-activityCompose = "1.9.0"
 ktor = "2.3.11"
 coroutines = "1.8.1"
 androidx-lifecycle = "2.8.2"
 koin = "3.5.3"
+okio = "3.9.0"
 skie = "0.8.2"
 kotlinx-datetime = "0.6.0"
 sqlDelight = "2.0.2"
@@ -19,6 +21,7 @@ data-store = "1.1.1"
 
 
 [libraries]
+coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
@@ -40,6 +43,7 @@ koin-android = { module = "io.insert-koin:koin-android", version.ref = "koin" }
 koin-core = { module = "io.insert-koin:koin-core", version.ref = "koin" }
 koin-test = { module = "io.insert-koin:koin-test", version.ref = "koin" }
 koin-compsoe = { module = "io.insert-koin:koin-androidx-compose", version.ref = "koin" }
+filesystem-okio = { module = "com.squareup.okio:okio", version.ref = "okio" }
 touchlab-skie-annotations = { module = "co.touchlab.skie:configuration-annotations", version.ref = "skie" }
 kotlinx-datetime = { module = "org.jetbrains.kotlinx:kotlinx-datetime", version.ref = "kotlinx-datetime" }
 sqlDelight-nativeDriver = { module = "app.cash.sqldelight:native-driver", version.ref = "sqlDelight" }

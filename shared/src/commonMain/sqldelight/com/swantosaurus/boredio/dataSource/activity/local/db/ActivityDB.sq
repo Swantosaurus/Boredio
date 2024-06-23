@@ -16,17 +16,18 @@ CREATE TABLE ActivityDatabaseModel (
     completed INTEGER AS Boolean NOT NULL,
     completeDate INTEGER,
     ignore INTEGER AS Boolean NOT NULL,
-    isDailyFeed INTEGER AS Boolean NOT NULL
+    isDailyFeed INTEGER AS Boolean NOT NULL,
+    path TEXT
 );
 
 
 insertActivity:
-INSERT INTO ActivityDatabaseModel (activity, type, participants, price, link, key, accessibility, favorite, userRating, fetchDate, completed, completeDate, ignore, isDailyFeed)
-VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
+INSERT INTO ActivityDatabaseModel (activity, type, participants, price, link, key, accessibility, favorite, userRating, fetchDate, completed, completeDate, ignore, isDailyFeed, path)
+VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?);
 
 updateActivity:
 UPDATE ActivityDatabaseModel
-SET activity = ?, type = ?, participants = ?, price = ?, link = ?, accessibility = ?, favorite = ?, userRating = ?, fetchDate = ?, completed = ?, completeDate = ?, ignore = ?, isDailyFeed = ?
+SET activity = ?, type = ?, participants = ?, price = ?, link = ?, accessibility = ?, favorite = ?, userRating = ?, fetchDate = ?, completed = ?, completeDate = ?, ignore = ?, isDailyFeed = ?, path = ?
 WHERE key = ?;
 
 selectAllActivities:

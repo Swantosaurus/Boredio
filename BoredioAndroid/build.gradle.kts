@@ -1,3 +1,5 @@
+import java.util.Properties
+
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
@@ -15,14 +17,21 @@ android {
         versionName = "1.0"
 
         //API key is in the local.properties file
+
+        //Who knows if its safe to put this here --
+        //best way would be to create own auth server and make requests from there
+        val properties = Properties()
+        properties.load(project.rootProject.file("local.properties").inputStream())
+
         buildConfigField(
             "String",
             "OPEN_AI_API_KEY",
-            "\"${project.findProperty("OPEN_AI_API_KEY") ?: ""}\""
+            "\"${properties.getProperty("OPEN_AI_API_KEY")!!}\""
         )
     }
     buildFeatures {
         compose = true
+        buildConfig = true
     }
     packaging {
         resources {
@@ -46,6 +55,8 @@ android {
 
 dependencies {
     implementation(platform(libs.compose.bom))
+
+    implementation(libs.coil.compose)
     implementation(libs.compose.animation)
     implementation(libs.compose.navigation)
     implementation(libs.koin.compsoe)
