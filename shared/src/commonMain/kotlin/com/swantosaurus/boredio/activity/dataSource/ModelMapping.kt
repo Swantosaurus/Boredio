@@ -1,9 +1,9 @@
 package com.swantosaurus.boredio.activity.dataSource
 
-import com.swantosaurus.boredio.dataSource.activity.local.db.ActivityDatabaseModel
+import com.swantosaurus.boredio.activity.dataSource.remote.model.ActivityRemoteModel
 import com.swantosaurus.boredio.activity.model.Activity
 import com.swantosaurus.boredio.activity.model.ActivityType
-import com.swantosaurus.boredio.activity.dataSource.remote.model.ActivityRemoteModel
+import com.swantosaurus.boredio.dataSource.activity.local.db.ActivityDatabaseModel
 import kotlinx.datetime.Clock
 import kotlinx.datetime.Instant
 import kotlinx.datetime.TimeZone
@@ -11,7 +11,7 @@ import kotlinx.datetime.toInstant
 import kotlinx.datetime.toLocalDateTime
 
 
-fun ActivityRemoteModel.toActivity(): Activity {
+fun ActivityRemoteModel.toActivity(isDailyFeed: Boolean): Activity {
     val fetchDate = Clock.System.now().toLocalDateTime(timeZone = TimeZone.currentSystemDefault())
     val type = ActivityType.valueOf(type.uppercase())
 
@@ -28,7 +28,8 @@ fun ActivityRemoteModel.toActivity(): Activity {
         fetchDate = fetchDate,
         completed = false,
         completeDate = null,
-        ignore = false
+        ignore = false,
+        isDailyFeed = isDailyFeed
     )
 }
 
@@ -49,7 +50,8 @@ fun Activity.toDatabaseModel(): ActivityDatabaseModel {
         fetchDate = fetchMillis,
         completed = completed,
         completeDate = completeMillis,
-        ignore = ignore
+        ignore = ignore,
+        isDailyFeed = isDailyFeed
     )
 }
 
@@ -73,6 +75,7 @@ fun ActivityDatabaseModel.toActivity(): Activity {
         fetchDate = fetchDate,
         completed = completed,
         completeDate = completeDate,
-        ignore = ignore
+        ignore = ignore,
+        isDailyFeed = isDailyFeed
     )
 }

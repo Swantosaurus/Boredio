@@ -1,7 +1,7 @@
 package com.swantosaurus.boredio.activity.dataSource.remote
 
-import com.swantosaurus.boredio.activity.model.ActivityType
 import com.swantosaurus.boredio.activity.dataSource.remote.model.ActivityRemoteModel
+import com.swantosaurus.boredio.activity.model.ActivityType
 import io.ktor.client.HttpClient
 import io.ktor.client.call.body
 import io.ktor.client.request.get

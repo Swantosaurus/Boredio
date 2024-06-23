@@ -38,6 +38,9 @@ android {
 }
 
 dependencies {
+    implementation(platform(libs.compose.bom))
+    implementation(libs.compose.animation)
+    implementation(libs.compose.navigation)
     implementation(libs.koin.compsoe)
     implementation(projects.shared)
     implementation(libs.compose.ui)
