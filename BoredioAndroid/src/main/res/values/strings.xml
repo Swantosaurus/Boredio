@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="reloadButton">Reload</string>
-    <string name="DailyFeedLoadError">Couldn\'t load daily feed please try again or contact support</string>
+    <string name="dailyFeedLoadError">Couldn\'t load daily feed please try again or contact support</string>
     <string name="loading">Loading ...</string>
     <string name="dailyFeedScreenTitle">Daily Challanges</string>
     <string name="rerolls">Rerolls</string>
@@ -13,4 +13,7 @@
     <string name="dismissActivityText">If you dismiss this activity it wont apear again.</string>
     <string name="cancel">Cancel</string>
     <string name="activity">Activity</string>
+    <string name="dayFeedTabBarTitle">Day Feed</string>
+    <string name="accountTabBarTitle">Account</string>
+    <string name="searchTabBarTitle">Search</string>
 </resources>

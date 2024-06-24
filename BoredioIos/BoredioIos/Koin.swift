@@ -21,9 +21,9 @@ func startKoin() {
     let doOnStartup = { NSLog("Hello from iOS/Swift!") }
 
     let koinApplication = KoinIOSKt.doInitKoinIos(
-        userDefaults: userDefaults,
         appInfo: iosAppInfo,
-        doOnStartup: doOnStartup
+        doOnStartup: doOnStartup,
+        ImageGeneratorOpenAiApiKey(
     )
     _koin = koinApplication.koin
 }

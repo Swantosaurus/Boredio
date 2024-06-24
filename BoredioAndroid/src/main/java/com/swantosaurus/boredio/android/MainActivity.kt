@@ -17,6 +17,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalLayoutDirection
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.navigation.compose.rememberNavController
 import com.swantosaurus.boredio.android.navigation.MainNavigation
 import com.swantosaurus.boredio.android.navigation.NavigationDestinations
@@ -53,7 +54,7 @@ class MainActivity : ComponentActivity() {
                                         }
                                     },
                                     label = {
-                                        Text(text = destination.title)
+                                        Text(text = stringResource(id = destination.title))
                                     },
                                     selected = navController.currentDestination?.route == destination.route,
                                     onClick = {

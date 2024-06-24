@@ -3,6 +3,7 @@ package com.swantosaurus.boredio.di
 import com.swantosaurus.boredio.AppInfo
 import com.swantosaurus.boredio.activity.dataSource.local.DatabaseDriverFactory
 import com.swantosaurus.boredio.dataSource.activity.local.IOSDatabaseDriverFactory
+import com.swantosaurus.boredio.imageGenerating.ImageGenerator
 import com.swantosaurus.boredio.screens.DailyFeedViewModel
 import org.koin.core.KoinApplication
 import org.koin.core.component.KoinComponent
@@ -17,9 +18,11 @@ actual val platformModule = module {
 
 fun initKoinIos(
     appInfo: AppInfo,
-    doOnStartup: () -> Unit
+    doOnStartup: () -> Unit,
+    openAiApiKey: ImageGenerator.OpenAiApiKey
 ): KoinApplication = initKoin(
     module {
+        single<ImageGenerator.OpenAiApiKey> {  }
         single { appInfo }
         single { doOnStartup }
     }

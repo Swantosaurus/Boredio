@@ -19,7 +19,9 @@
 		67FBBD932C29A8DE00CB0ED7 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 67FBBD922C29A8DE00CB0ED7 /* Networking */; };
 		67FBBD952C29A8DE00CB0ED7 /* PushNotifications in Frameworks */ = {isa = PBXBuildFile; productRef = 67FBBD942C29A8DE00CB0ED7 /* PushNotifications */; };
 		67FBBD972C29A99800CB0ED7 /* DailyFeedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBD962C29A99800CB0ED7 /* DailyFeedFlowCoordinator.swift */; };
-		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
+		67FBBD9A2C29B39800CB0ED7 /* UiViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBD992C29B39800CB0ED7 /* UiViewControllerExtension.swift */; };
+		67FBBD9E2C29B65F00CB0ED7 /* BottomBarNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBD9D2C29B65F00CB0ED7 /* BottomBarNavigationViewController.swift */; };
+		67FBBDA02C29CA3D00CB0ED7 /* OpenAiApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBD9F2C29CA3D00CB0ED7 /* OpenAiApiKey.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -44,8 +46,10 @@
 		67FBBD892C299FD600CB0ED7 /* DailyFeedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFeedScreen.swift; sourceTree = "<group>"; };
 		67FBBD8B2C29A56800CB0ED7 /* DailyFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFeedViewController.swift; sourceTree = "<group>"; };
 		67FBBD962C29A99800CB0ED7 /* DailyFeedFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFeedFlowCoordinator.swift; sourceTree = "<group>"; };
+		67FBBD992C29B39800CB0ED7 /* UiViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiViewControllerExtension.swift; sourceTree = "<group>"; };
+		67FBBD9D2C29B65F00CB0ED7 /* BottomBarNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarNavigationViewController.swift; sourceTree = "<group>"; };
+		67FBBD9F2C29CA3D00CB0ED7 /* OpenAiApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAiApiKey.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* BoredioIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoredioIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -82,6 +86,14 @@
 			path = DailyFeed;
 			sourceTree = "<group>";
 		};
+		67FBBD982C29B38500CB0ED7 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				67FBBD992C29B39800CB0ED7 /* UiViewControllerExtension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -102,14 +114,16 @@
 		7555FF7D242A565900829871 /* BoredioIos */ = {
 			isa = PBXGroup;
 			children = (
+				67FBBD982C29B38500CB0ED7 /* Extension */,
 				67FBBD882C299F0800CB0ED7 /* DailyFeed */,
 				675189CA2C1B7DD400C5670C /* AppDelegate.swift */,
 				675189C82C1B78C800C5670C /* Koin.swift */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
-				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 				675189CC2C1BB6BB00C5670C /* Localizable.xcstrings */,
+				67FBBD9D2C29B65F00CB0ED7 /* BottomBarNavigationViewController.swift */,
+				67FBBD9F2C29CA3D00CB0ED7 /* OpenAiApiKey.swift */,
 			);
 			path = BoredioIos;
 			sourceTree = "<group>";
@@ -225,9 +239,11 @@
 			files = (
 				67FBBD972C29A99800CB0ED7 /* DailyFeedFlowCoordinator.swift in Sources */,
 				67FBBD8C2C29A56800CB0ED7 /* DailyFeedViewController.swift in Sources */,
+				67FBBD9A2C29B39800CB0ED7 /* UiViewControllerExtension.swift in Sources */,
+				67FBBD9E2C29B65F00CB0ED7 /* BottomBarNavigationViewController.swift in Sources */,
+				67FBBDA02C29CA3D00CB0ED7 /* OpenAiApiKey.swift in Sources */,
 				675189CB2C1B7DD400C5670C /* AppDelegate.swift in Sources */,
 				675189C92C1B78C800C5670C /* Koin.swift in Sources */,
-				7555FF83242A565900829871 /* ContentView.swift in Sources */,
 				67FBBD8A2C299FD600CB0ED7 /* DailyFeedScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -19,6 +19,7 @@ xcuserdata/
 !*.xcodeproj/xcshareddata/
 !*.xcworkspace/contents.xcworkspacedata
 /*.gcno
+/BoredioIos/OpenAiApiKey.swift
 
 ### Xcode Patch ###
 **/xcshareddata/WorkspaceSettings.xcsettings

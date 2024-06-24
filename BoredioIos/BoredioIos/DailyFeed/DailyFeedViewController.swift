@@ -11,17 +11,18 @@ import SwiftUI
 import ACKategories
 import shared
 
-final class DailyFeedViewController: Base.ViewController {
+final class DailyFeedViewController: UIViewController {
     
     override func loadView() {
         super.loadView()
         let rootView = DailyFeedScreen()
         let vc = UIHostingController(rootView: rootView)
+        embedController(vc)
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        navigationItem.title =
+        navigationItem.title = "TODO"
     }
 }

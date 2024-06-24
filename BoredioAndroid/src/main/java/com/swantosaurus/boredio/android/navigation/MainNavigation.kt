@@ -1,6 +1,7 @@
 package com.swantosaurus.boredio.android.navigation
 
 import androidx.annotation.DrawableRes
+import androidx.annotation.StringRes
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
@@ -12,13 +13,13 @@ import com.swantosaurus.boredio.android.ui.DailyFeedScreen
 
 enum class NavigationDestinations(
     val route: String,
-    val title: String,
+    @StringRes val title: Int,
     @DrawableRes val bottomBarIconResSelected: Int,
     @DrawableRes val bottomBarIconResUnselected: Int
 ) {
-    DAY_FEED("day_feed", "Day Feed", R.drawable.baseline_event_note_24, R.drawable.outline_event_note_24),
-    ACCOUNT("account", "Account", R.drawable.baseline_account_circle_24, R.drawable.outline_account_circle_24),
-    SEARCH("search", "Search", R.drawable.twotone_image_search_24, R.drawable.outline_image_search_24)
+    DAY_FEED("day_feed", R.string.dayFeedTabBarTitle, R.drawable.baseline_event_note_24, R.drawable.outline_event_note_24),
+    ACCOUNT("account", R.string.accountTabBarTitle, R.drawable.baseline_account_circle_24, R.drawable.outline_account_circle_24),
+    SEARCH("search", R.string.searchTabBarTitle, R.drawable.twotone_image_search_24, R.drawable.outline_image_search_24)
 }
 
 
