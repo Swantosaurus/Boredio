@@ -10,12 +10,20 @@ import Foundation
 import ACKategories
 import UIKit
 
-final class BottomBarNavigationViewController: Base.ViewController {
+final class BottomBarNavigationFlow: Base.FlowCoordinatorNoDeepLink {
     private weak var tabBar: UITabBarController!
+    private weak var window: UIWindow!
     
-    override func loadView() {
-        super.loadView()
-        view.backgroundColor = .yellow
+    override func start(in window: UIWindow) {
+        self.window = window
+        
+        super.start(in: window)
+        
+        
+        setupTabBar()
+    }
+    
+    func setupTabBar() {
         //TODO make all controllers in bottom bar
         
         let dailyFeedController = DailyFeedViewController()
@@ -26,8 +34,11 @@ final class BottomBarNavigationViewController: Base.ViewController {
         tabBarController.viewControllers = [
             dailyFeedController
         ]
+        rootViewController = tabBarController
         
-        embedController(tabBarController)
+        window?.rootViewController = tabBarController
+        window?.makeKeyAndVisible()
+        
         self.tabBar = tabBarController
     }
 }

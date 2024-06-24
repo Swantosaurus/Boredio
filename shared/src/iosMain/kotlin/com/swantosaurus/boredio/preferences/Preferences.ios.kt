@@ -21,6 +21,7 @@ actual fun createDataStore(): DataStore<Preferences> {
                 create = false,
                 error = null
             )
+            println("preferencesPath: ${(requireNotNull(documentDirectory).path() + preferencesPath)}")
             (requireNotNull(documentDirectory).path() + "/$preferencesPath").toPath()
         }
     )

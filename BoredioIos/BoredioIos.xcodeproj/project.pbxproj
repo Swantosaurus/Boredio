@@ -20,7 +20,7 @@
 		67FBBD952C29A8DE00CB0ED7 /* PushNotifications in Frameworks */ = {isa = PBXBuildFile; productRef = 67FBBD942C29A8DE00CB0ED7 /* PushNotifications */; };
 		67FBBD972C29A99800CB0ED7 /* DailyFeedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBD962C29A99800CB0ED7 /* DailyFeedFlowCoordinator.swift */; };
 		67FBBD9A2C29B39800CB0ED7 /* UiViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBD992C29B39800CB0ED7 /* UiViewControllerExtension.swift */; };
-		67FBBD9E2C29B65F00CB0ED7 /* BottomBarNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBD9D2C29B65F00CB0ED7 /* BottomBarNavigationViewController.swift */; };
+		67FBBD9E2C29B65F00CB0ED7 /* BottomBarNavigationFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBD9D2C29B65F00CB0ED7 /* BottomBarNavigationFlow.swift */; };
 		67FBBDA02C29CA3D00CB0ED7 /* OpenAiApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBD9F2C29CA3D00CB0ED7 /* OpenAiApiKey.swift */; };
 		67FBBDA42C29D38600CB0ED7 /* SimpleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBDA32C29D38600CB0ED7 /* SimpleError.swift */; };
 		67FBBDA72C29D3FD00CB0ED7 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBDA62C29D3FD00CB0ED7 /* ErrorView.swift */; };
@@ -49,7 +49,7 @@
 		67FBBD8B2C29A56800CB0ED7 /* DailyFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFeedViewController.swift; sourceTree = "<group>"; };
 		67FBBD962C29A99800CB0ED7 /* DailyFeedFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFeedFlowCoordinator.swift; sourceTree = "<group>"; };
 		67FBBD992C29B39800CB0ED7 /* UiViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiViewControllerExtension.swift; sourceTree = "<group>"; };
-		67FBBD9D2C29B65F00CB0ED7 /* BottomBarNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarNavigationViewController.swift; sourceTree = "<group>"; };
+		67FBBD9D2C29B65F00CB0ED7 /* BottomBarNavigationFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarNavigationFlow.swift; sourceTree = "<group>"; };
 		67FBBD9F2C29CA3D00CB0ED7 /* OpenAiApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAiApiKey.swift; sourceTree = "<group>"; };
 		67FBBDA32C29D38600CB0ED7 /* SimpleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleError.swift; sourceTree = "<group>"; };
 		67FBBDA62C29D3FD00CB0ED7 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
@@ -152,7 +152,7 @@
 				7555FF8C242A565B00829871 /* Info.plist */,
 				058557D7273AAEEB004C7B11 /* Preview Content */,
 				675189CC2C1BB6BB00C5670C /* Localizable.xcstrings */,
-				67FBBD9D2C29B65F00CB0ED7 /* BottomBarNavigationViewController.swift */,
+				67FBBD9D2C29B65F00CB0ED7 /* BottomBarNavigationFlow.swift */,
 				67FBBD9F2C29CA3D00CB0ED7 /* OpenAiApiKey.swift */,
 			);
 			path = BoredioIos;
@@ -271,7 +271,7 @@
 				67FBBD972C29A99800CB0ED7 /* DailyFeedFlowCoordinator.swift in Sources */,
 				67FBBD8C2C29A56800CB0ED7 /* DailyFeedViewController.swift in Sources */,
 				67FBBD9A2C29B39800CB0ED7 /* UiViewControllerExtension.swift in Sources */,
-				67FBBD9E2C29B65F00CB0ED7 /* BottomBarNavigationViewController.swift in Sources */,
+				67FBBD9E2C29B65F00CB0ED7 /* BottomBarNavigationFlow.swift in Sources */,
 				67FBBDA02C29CA3D00CB0ED7 /* OpenAiApiKey.swift in Sources */,
 				67FBBDA72C29D3FD00CB0ED7 /* ErrorView.swift in Sources */,
 				675189CB2C1B7DD400C5670C /* AppDelegate.swift in Sources */,

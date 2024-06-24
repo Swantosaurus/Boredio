@@ -13,22 +13,17 @@ import SwiftUI
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
-    // Lazy so it doesn't try to initialize before startKoin() is called
-    //lazy var log = koin.loggerWithTag(tag: "AppDelegate")
+    
+    let mainFlow = BottomBarNavigationFlow()
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
         launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
-        startKoin()
-
-        let viewController = BottomBarNavigationViewController()
-
+        startKoin() // DI
+        
         self.window = UIWindow(frame: UIScreen.main.bounds)
-        self.window?.rootViewController = viewController
-        self.window?.makeKeyAndVisible()
+        mainFlow.start(in: self.window!)
 
-        //log.v(message: {"App Started"})
         return true
     }
 }
