@@ -1,6 +1,7 @@
 package com.swantosaurus.boredio.di
 
 import com.swantosaurus.boredio.imageGenerating.ImageGenerator
+import com.swantosaurus.boredio.preferences.createDataStore
 import io.ktor.client.HttpClient
 import io.ktor.client.plugins.contentnegotiation.ContentNegotiation
 import io.ktor.serialization.kotlinx.json.json
@@ -10,6 +11,9 @@ val commonModule = module {
     //http client for network requests
     single {
         ImageGenerator(client = get(), apiKey = get())
+    }
+    single {
+        createDataStore()
     }
     single {
         HttpClient {

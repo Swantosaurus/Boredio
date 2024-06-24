@@ -22,7 +22,7 @@ fun initKoinIos(
     openAiApiKey: ImageGenerator.OpenAiApiKey
 ): KoinApplication = initKoin(
     module {
-        single<ImageGenerator.OpenAiApiKey> {  }
+        single<ImageGenerator.OpenAiApiKey> { openAiApiKey }
         single { appInfo }
         single { doOnStartup }
     }

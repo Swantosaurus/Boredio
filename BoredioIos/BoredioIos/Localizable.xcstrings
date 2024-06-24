@@ -1,182 +1,188 @@
 {
-    "sourceLanguage" : "en",
-        "strings" : {
-            "reloadButton" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Reload"
-                       }
-                   }
-               }
-           },
-            "dailyFeedLoadError" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Couldn't load daily feed please try again or contact support"
-                       }
-                   }
-               }
-           },
-            "loading" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Loading ..."
-                       }
-                   }
-               }
-           },
-            "dailyFeedScreenTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Daily Challanges"
-                       }
-                   }
-               }
-           },
-            "rerolls" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Rerolls"
-                       }
-                   }
-               }
-           },
-            "ok" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Ok"
-                       }
-                   }
-               }
-           },
-            "noRerollsTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "No rerolls"
-                       }
-                   }
-               }
-           },
-            "noRerollsText" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "You have no more rerolls available for today wait for tomorrow or deal with current task"
-                       }
-                   }
-               }
-           },
-            "dismiss" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Dismiss"
-                       }
-                   }
-               }
-           },
-            "dismissActivityTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Dismiss this activity??"
-                       }
-                   }
-               }
-           },
-            "dismissActivityText" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "If you dismiss this activity it wont apear again."
-                       }
-                   }
-               }
-           },
-            "cancel" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Cancel"
-                       }
-                   }
-               }
-           },
-            "activity" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Activity"
-                       }
-                   }
-               }
-           },
-            "dayFeedTabBarTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Day Feed"
-                       }
-                   }
-               }
-           },
-            "accountTabBarTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Account"
-                       }
-                   }
-               }
-           },
-            "searchTabBarTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Search"
-                       }
-                   }
-               }
-           }
+  "sourceLanguage" : "en",
+  "strings" : {
+    "accountTabBarTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account"
+          }
+        }
+      }
     },
-    "version" : "1.0"
+    "activity" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activity"
+          }
+        }
+      }
+    },
+    "cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "dailyFeedLoadError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't load daily feed please try again or contact support"
+          }
+        }
+      }
+    },
+    "dailyFeedScreenTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daily Challanges"
+          }
+        }
+      }
+    },
+    "dayFeedTabBarTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Day Feed"
+          }
+        }
+      }
+    },
+    "dismiss" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dismiss"
+          }
+        }
+      }
+    },
+    "dismissActivityText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you dismiss this activity it wont apear again."
+          }
+        }
+      }
+    },
+    "dismissActivityTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dismiss this activity??"
+          }
+        }
+      }
+    },
+    "loading" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading ..."
+          }
+        }
+      }
+    },
+    "message: %@" : {
+
+    },
+    "noRerollsText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have no more rerolls available for today wait for tomorrow or deal with current task"
+          }
+        }
+      }
+    },
+    "noRerollsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No rerolls"
+          }
+        }
+      }
+    },
+    "ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        }
+      }
+    },
+    "reloadButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reload"
+          }
+        }
+      }
+    },
+    "rerolls" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rerolls"
+          }
+        }
+      }
+    },
+    "searchTabBarTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
+          }
+        }
+      }
+    },
+    "THIS SCREAN SHOULDNT APPEAR" : {
+
+    }
+  },
+  "version" : "1.0"
 }

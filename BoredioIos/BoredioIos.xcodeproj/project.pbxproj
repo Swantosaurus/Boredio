@@ -22,6 +22,8 @@
 		67FBBD9A2C29B39800CB0ED7 /* UiViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBD992C29B39800CB0ED7 /* UiViewControllerExtension.swift */; };
 		67FBBD9E2C29B65F00CB0ED7 /* BottomBarNavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBD9D2C29B65F00CB0ED7 /* BottomBarNavigationViewController.swift */; };
 		67FBBDA02C29CA3D00CB0ED7 /* OpenAiApiKey.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBD9F2C29CA3D00CB0ED7 /* OpenAiApiKey.swift */; };
+		67FBBDA42C29D38600CB0ED7 /* SimpleError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBDA32C29D38600CB0ED7 /* SimpleError.swift */; };
+		67FBBDA72C29D3FD00CB0ED7 /* ErrorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBDA62C29D3FD00CB0ED7 /* ErrorView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -49,6 +51,8 @@
 		67FBBD992C29B39800CB0ED7 /* UiViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UiViewControllerExtension.swift; sourceTree = "<group>"; };
 		67FBBD9D2C29B65F00CB0ED7 /* BottomBarNavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomBarNavigationViewController.swift; sourceTree = "<group>"; };
 		67FBBD9F2C29CA3D00CB0ED7 /* OpenAiApiKey.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OpenAiApiKey.swift; sourceTree = "<group>"; };
+		67FBBDA32C29D38600CB0ED7 /* SimpleError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleError.swift; sourceTree = "<group>"; };
+		67FBBDA62C29D3FD00CB0ED7 /* ErrorView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorView.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* BoredioIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoredioIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -90,8 +94,31 @@
 			isa = PBXGroup;
 			children = (
 				67FBBD992C29B39800CB0ED7 /* UiViewControllerExtension.swift */,
+				67FBBDA32C29D38600CB0ED7 /* SimpleError.swift */,
 			);
 			path = Extension;
+			sourceTree = "<group>";
+		};
+		67FBBDA12C29CE0400CB0ED7 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		67FBBDA22C29CE1300CB0ED7 /* Search */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Search;
+			sourceTree = "<group>";
+		};
+		67FBBDA52C29D3F500CB0ED7 /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				67FBBDA62C29D3FD00CB0ED7 /* ErrorView.swift */,
+			);
+			path = utils;
 			sourceTree = "<group>";
 		};
 		7555FF72242A565900829871 = {
@@ -114,6 +141,9 @@
 		7555FF7D242A565900829871 /* BoredioIos */ = {
 			isa = PBXGroup;
 			children = (
+				67FBBDA52C29D3F500CB0ED7 /* utils */,
+				67FBBDA22C29CE1300CB0ED7 /* Search */,
+				67FBBDA12C29CE0400CB0ED7 /* Account */,
 				67FBBD982C29B38500CB0ED7 /* Extension */,
 				67FBBD882C299F0800CB0ED7 /* DailyFeed */,
 				675189CA2C1B7DD400C5670C /* AppDelegate.swift */,
@@ -242,9 +272,11 @@
 				67FBBD9A2C29B39800CB0ED7 /* UiViewControllerExtension.swift in Sources */,
 				67FBBD9E2C29B65F00CB0ED7 /* BottomBarNavigationViewController.swift in Sources */,
 				67FBBDA02C29CA3D00CB0ED7 /* OpenAiApiKey.swift in Sources */,
+				67FBBDA72C29D3FD00CB0ED7 /* ErrorView.swift in Sources */,
 				675189CB2C1B7DD400C5670C /* AppDelegate.swift in Sources */,
 				675189C92C1B78C800C5670C /* Koin.swift in Sources */,
 				67FBBD8A2C299FD600CB0ED7 /* DailyFeedScreen.swift in Sources */,
+				67FBBDA42C29D38600CB0ED7 /* SimpleError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
