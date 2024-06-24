@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,13 @@
 		675189C92C1B78C800C5670C /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675189C82C1B78C800C5670C /* Koin.swift */; };
 		675189CB2C1B7DD400C5670C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675189CA2C1B7DD400C5670C /* AppDelegate.swift */; };
 		675189CD2C1BB6BB00C5670C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 675189CC2C1BB6BB00C5670C /* Localizable.xcstrings */; };
+		67FBBD8A2C299FD600CB0ED7 /* DailyFeedScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBD892C299FD600CB0ED7 /* DailyFeedScreen.swift */; };
+		67FBBD8C2C29A56800CB0ED7 /* DailyFeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBD8B2C29A56800CB0ED7 /* DailyFeedViewController.swift */; };
+		67FBBD8F2C29A8DE00CB0ED7 /* ACKategories in Frameworks */ = {isa = PBXBuildFile; productRef = 67FBBD8E2C29A8DE00CB0ED7 /* ACKategories */; };
+		67FBBD912C29A8DE00CB0ED7 /* ACKategoriesTesting in Frameworks */ = {isa = PBXBuildFile; productRef = 67FBBD902C29A8DE00CB0ED7 /* ACKategoriesTesting */; };
+		67FBBD932C29A8DE00CB0ED7 /* Networking in Frameworks */ = {isa = PBXBuildFile; productRef = 67FBBD922C29A8DE00CB0ED7 /* Networking */; };
+		67FBBD952C29A8DE00CB0ED7 /* PushNotifications in Frameworks */ = {isa = PBXBuildFile; productRef = 67FBBD942C29A8DE00CB0ED7 /* PushNotifications */; };
+		67FBBD972C29A99800CB0ED7 /* DailyFeedFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FBBD962C29A99800CB0ED7 /* DailyFeedFlowCoordinator.swift */; };
 		7555FF83242A565900829871 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7555FF82242A565900829871 /* ContentView.swift */; };
 /* End PBXBuildFile section */
 
@@ -34,6 +41,9 @@
 		675189C82C1B78C800C5670C /* Koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
 		675189CA2C1B7DD400C5670C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		675189CC2C1BB6BB00C5670C /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
+		67FBBD892C299FD600CB0ED7 /* DailyFeedScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFeedScreen.swift; sourceTree = "<group>"; };
+		67FBBD8B2C29A56800CB0ED7 /* DailyFeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFeedViewController.swift; sourceTree = "<group>"; };
+		67FBBD962C29A99800CB0ED7 /* DailyFeedFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyFeedFlowCoordinator.swift; sourceTree = "<group>"; };
 		7555FF7B242A565900829871 /* BoredioIos.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoredioIos.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,6 +54,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67FBBD932C29A8DE00CB0ED7 /* Networking in Frameworks */,
+				67FBBD8F2C29A8DE00CB0ED7 /* ACKategories in Frameworks */,
+				67FBBD912C29A8DE00CB0ED7 /* ACKategoriesTesting in Frameworks */,
+				67FBBD952C29A8DE00CB0ED7 /* PushNotifications in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -56,6 +70,16 @@
 				058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		67FBBD882C299F0800CB0ED7 /* DailyFeed */ = {
+			isa = PBXGroup;
+			children = (
+				67FBBD892C299FD600CB0ED7 /* DailyFeedScreen.swift */,
+				67FBBD8B2C29A56800CB0ED7 /* DailyFeedViewController.swift */,
+				67FBBD962C29A99800CB0ED7 /* DailyFeedFlowCoordinator.swift */,
+			);
+			path = DailyFeed;
 			sourceTree = "<group>";
 		};
 		7555FF72242A565900829871 = {
@@ -78,6 +102,7 @@
 		7555FF7D242A565900829871 /* BoredioIos */ = {
 			isa = PBXGroup;
 			children = (
+				67FBBD882C299F0800CB0ED7 /* DailyFeed */,
 				675189CA2C1B7DD400C5670C /* AppDelegate.swift */,
 				675189C82C1B78C800C5670C /* Koin.swift */,
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
@@ -114,6 +139,12 @@
 			dependencies = (
 			);
 			name = BoredioIos;
+			packageProductDependencies = (
+				67FBBD8E2C29A8DE00CB0ED7 /* ACKategories */,
+				67FBBD902C29A8DE00CB0ED7 /* ACKategoriesTesting */,
+				67FBBD922C29A8DE00CB0ED7 /* Networking */,
+				67FBBD942C29A8DE00CB0ED7 /* PushNotifications */,
+			);
 			productName = BoredioIos;
 			productReference = 7555FF7B242A565900829871 /* BoredioIos.app */;
 			productType = "com.apple.product-type.application";
@@ -142,6 +173,9 @@
 				Base,
 			);
 			mainGroup = 7555FF72242A565900829871;
+			packageReferences = (
+				67FBBD8D2C29A8DE00CB0ED7 /* XCRemoteSwiftPackageReference "ACKategories" */,
+			);
 			productRefGroup = 7555FF7C242A565900829871 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -189,9 +223,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67FBBD972C29A99800CB0ED7 /* DailyFeedFlowCoordinator.swift in Sources */,
+				67FBBD8C2C29A56800CB0ED7 /* DailyFeedViewController.swift in Sources */,
 				675189CB2C1B7DD400C5670C /* AppDelegate.swift in Sources */,
 				675189C92C1B78C800C5670C /* Koin.swift in Sources */,
 				7555FF83242A565900829871 /* ContentView.swift in Sources */,
+				67FBBD8A2C299FD600CB0ED7 /* DailyFeedScreen.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +370,7 @@
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
+					"-lsqlite3",
 					"-framework",
 					shared,
 				);
@@ -362,6 +400,7 @@
 				);
 				OTHER_LDFLAGS = (
 					"$(inherited)",
+					"-lsqlite3",
 					"-framework",
 					shared,
 				);
@@ -394,6 +433,40 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		67FBBD8D2C29A8DE00CB0ED7 /* XCRemoteSwiftPackageReference "ACKategories" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/AckeeCZ/ACKategories.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.15.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		67FBBD8E2C29A8DE00CB0ED7 /* ACKategories */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67FBBD8D2C29A8DE00CB0ED7 /* XCRemoteSwiftPackageReference "ACKategories" */;
+			productName = ACKategories;
+		};
+		67FBBD902C29A8DE00CB0ED7 /* ACKategoriesTesting */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67FBBD8D2C29A8DE00CB0ED7 /* XCRemoteSwiftPackageReference "ACKategories" */;
+			productName = ACKategoriesTesting;
+		};
+		67FBBD922C29A8DE00CB0ED7 /* Networking */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67FBBD8D2C29A8DE00CB0ED7 /* XCRemoteSwiftPackageReference "ACKategories" */;
+			productName = Networking;
+		};
+		67FBBD942C29A8DE00CB0ED7 /* PushNotifications */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 67FBBD8D2C29A8DE00CB0ED7 /* XCRemoteSwiftPackageReference "ACKategories" */;
+			productName = PushNotifications;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 7555FF73242A565900829871 /* Project object */;
 }

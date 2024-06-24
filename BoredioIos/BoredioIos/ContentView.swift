@@ -3,17 +3,19 @@ import shared
 
 
 struct ContentView: View {
-    @State
-    var viewModel: SimpleCounterViewModel?
+    ///@State
+    //var viewModel: SimpleCounterViewModel?
     
     @State
     var counter : KotlinInt = 0;
-
+    
+    
 	var body: some View {
         VStack {
             Text(String(counter.intValue))
+            /*
                 .task {
-                    let viewModel = KotlinDependencies.shared.getSimpleCounterViewModel()
+                    let viewModel = KotlinDependencies.shared
                     await withTaskCancellationHandler(
                         operation: {
                             self.viewModel = viewModel
@@ -33,13 +35,13 @@ struct ContentView: View {
             Button(action: {viewModel?.decrement()}) {
                 Text("--")
             }
+             */
         }
-        
 	}
 }
 
 struct ContentView_Previews: PreviewProvider {
 	static var previews: some View {
-        ContentView(viewModel: SimpleCounterViewModel())
+        ContentView()
 	}
 }

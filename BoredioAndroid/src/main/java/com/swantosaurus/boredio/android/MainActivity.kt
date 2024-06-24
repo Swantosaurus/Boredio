@@ -1,16 +1,80 @@
 package com.swantosaurus.boredio.android
 
 import android.os.Bundle
+import android.util.Log
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.Icon
+import androidx.compose.material3.NavigationBar
+import androidx.compose.material3.NavigationBarItem
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.platform.LocalLayoutDirection
+import androidx.compose.ui.res.painterResource
+import androidx.navigation.compose.rememberNavController
 import com.swantosaurus.boredio.android.navigation.MainNavigation
+import com.swantosaurus.boredio.android.navigation.NavigationDestinations
+import kotlinx.coroutines.flow.map
+
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MyApplicationTheme {
-                MainNavigation()
+                val navController = rememberNavController()
+                Scaffold(
+                    bottomBar =  {
+                        NavigationBar {
+                            val currentRoute by navController.currentBackStackEntryFlow.map { it.destination.route }.collectAsState(
+                                initial = NavigationDestinations.DAY_FEED.route
+                            )
+                            NavigationDestinations.entries.forEach { destination ->
+                                Log.d("currentDestination", "${currentRoute} // ${destination.route}")
+                                val isSelected = currentRoute == destination.route
+                                NavigationBarItem(
+                                    icon = {
+                                        if(isSelected) {
+                                            Icon(
+                                                painter = painterResource(id = destination.bottomBarIconResSelected),
+                                                contentDescription = null
+                                            )
+                                        } else {
+                                            Icon(
+                                                painter = painterResource(id = destination.bottomBarIconResUnselected),
+                                                contentDescription = null
+                                            )
+                                        }
+                                    },
+                                    label = {
+                                        Text(text = destination.title)
+                                    },
+                                    selected = navController.currentDestination?.route == destination.route,
+                                    onClick = {
+                                        navController.navigate(destination.route)
+                                    }
+                                )
+
+                            }
+                        }
+                    }
+                ) { padding ->
+                    Box(modifier = Modifier
+                        .fillMaxSize()
+                        .padding(
+                            bottom = padding.calculateBottomPadding(),
+                            start = padding.calculateLeftPadding(LocalLayoutDirection.current),
+                            end = padding.calculateRightPadding(LocalLayoutDirection.current),
+                        )) {
+                        MainNavigation(navController = navController)
+                    }
+                }
             }
         }
     }

@@ -12,14 +12,15 @@ import com.swantosaurus.boredio.activity.model.Activity
 import com.swantosaurus.boredio.util.toDateTime
 import com.swantosaurus.boredio.util.toMillis
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.IO
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.newSingleThreadContext
 import kotlinx.datetime.Clock
 import kotlinx.datetime.LocalDateTime
 import kotlinx.datetime.TimeZone
@@ -30,20 +31,28 @@ private const val REROLLS_KEY = "reroll_count"
 
 private const val DAILY_REROLL_CNT = 2
 
+/** IOS supports only MainScope this is single thread scope that just plans tasks in queue for single executor */
+/** https://github.com/Kotlin/kotlinx.coroutines/issues/462 */
+@OptIn(ExperimentalCoroutinesApi::class, DelicateCoroutinesApi::class)
+private val backgroundSingleThreadScope = CoroutineScope(newSingleThreadContext("DailyFeedViewModelBackgroundScope"))
+
+
 class DailyFeedViewModel(
     private val activityDataSource: ActivityDataSource,
     private val preferences: DataStore<Preferences>,
 ) : ViewModel() {
     private val logger = Logger.withTag("DailyFeedViewModel")
 
+    /** DAILY FEED */
     private val _dailyFeedState = MutableStateFlow<DailyFeedState>(DailyFeedState.Loading)
     val dailyFeedState = _dailyFeedState.asStateFlow()
 
+    /** REROLS */
     val rerolls = preferences.data.map { it[rerollsKey] }
-
     private val rerollsKey = intPreferencesKey(REROLLS_KEY)
     private val rerollsLastUpdateKey = longPreferencesKey(REROLLS_KEY_LAST_UPDATE)
 
+    /** ON DAY CHANGE */
     private val _dayResetState = MutableStateFlow<DayResetState>(DayResetState.Dismissed)
     val dayReloadState = _dayResetState.asStateFlow()
 
@@ -56,7 +65,7 @@ class DailyFeedViewModel(
     fun reroll(activity: Activity, onNoRerolls: () -> Unit) = reroll(activity.key, onNoRerolls)
 
     fun reroll(key: String, onNoRerolls: () -> Unit) {
-        CoroutineScope(Dispatchers.IO).launch {
+        backgroundSingleThreadScope.launch {
             rerollInternal(key, onNoRerolls = onNoRerolls)
         }
     }
@@ -68,7 +77,7 @@ class DailyFeedViewModel(
     fun complete(key: String, rating: Int?) {
         if (!checkIsUpToDate()) {
             //accent completion even on day change
-            CoroutineScope(Dispatchers.Main).launch {
+            backgroundSingleThreadScope.launch {
                 activityDataSource.storeActivity(
                     activityDataSource.getActivityByKey(key)!!
                         .copy(completed = true, userRating = rating)
@@ -82,7 +91,7 @@ class DailyFeedViewModel(
             return
         }
 
-        CoroutineScope(Dispatchers.Main).launch {
+        backgroundSingleThreadScope.launch {
             _dailyFeedState.update { currentState ->
                 if (currentState !is DailyFeedState.Ready) {
                     return@update DailyFeedState.Error
@@ -106,7 +115,8 @@ class DailyFeedViewModel(
     fun ignore(activity: Activity) = ignore(activity.key)
 
     fun ignore(key: String){
-        CoroutineScope(Dispatchers.Main).launch {
+        checkIsUpToDate()
+        backgroundSingleThreadScope.launch {
             _dailyFeedState.update { currentState ->
                 if (currentState !is DailyFeedState.Ready) {
                     return@update DailyFeedState.Error
@@ -185,7 +195,7 @@ class DailyFeedViewModel(
         logger.i { "daily feed (loads or reloads) for screen" }
         lastUpdate = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault())
 
-        CoroutineScope(Dispatchers.Main).launch {
+        backgroundSingleThreadScope.launch {
             _dailyFeedState.update {
                 val feed = activityDataSource.getDailyFeed { activityWithImage ->
                     updateOnImage(activityWithImage)
@@ -198,7 +208,7 @@ class DailyFeedViewModel(
             }
         }
 
-        CoroutineScope(Dispatchers.Main).launch {
+        backgroundSingleThreadScope.launch {
             preferences.data.firstOrNull()?.let {
                 val rerolls = it[rerollsKey]
                 val rrLastUpdate = (it[rerollsLastUpdateKey] ?: 0L).toDateTime()
@@ -216,7 +226,8 @@ class DailyFeedViewModel(
         }
     }
 
-    private fun updateOnImage(activityWithImage: Activity): Unit {
+    /** updates activity with image after async image loading*/
+    private fun updateOnImage(activityWithImage: Activity) {
         if(_dailyFeedState.value !is DailyFeedState.Ready) {
             return
         }

@@ -6,15 +6,16 @@ import com.swantosaurus.boredio.activity.dataSource.local.ActivityLocalDataSourc
 import com.swantosaurus.boredio.activity.dataSource.remote.ActivityRemoteDataSource
 import com.swantosaurus.boredio.activity.model.Activity
 import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.IO
+import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.newSingleThreadContext
 import kotlinx.datetime.Clock
 import kotlinx.datetime.TimeZone
 import kotlinx.datetime.toLocalDateTime
 
 
-private const val FETCH_ATTEMPTS = 4
+private const val FETCH_ATTEMPTS = 3
 private const val DAILY_FEED_CNT = 5
 
 internal class ActivityDataSourceImpl(
@@ -23,7 +24,8 @@ internal class ActivityDataSourceImpl(
     private val imageGeneratingDataSource: ImageGeneratingDataSource
 ) : ActivityDataSource {
     private val logger = Logger.withTag("ActivityDataSourceImpl")
-    private val backgroundQueue = CoroutineScope(Dispatchers.IO)
+    @OptIn(ExperimentalCoroutinesApi::class, DelicateCoroutinesApi::class)
+    private val backgroundQueue = CoroutineScope(newSingleThreadContext("ActivityDataSourceImpl"))
 
     override suspend fun getDailyFeed(onImageReady: (Activity) -> Unit): List<Activity>? {
         var dailyFeedDb = activityLocalDataSource.getDailyFeed().map { it.toActivity() }
