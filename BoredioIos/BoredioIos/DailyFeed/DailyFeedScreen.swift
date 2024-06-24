@@ -20,21 +20,6 @@ struct DailyFeedScreen: View {
     
     @State var dayResetState : DayResetState?
     
-    var L : Int? = {
-        do {
-            let dir = try FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: false).absoluteString
-            let directoryContents = try FileManager.default.contentsOfDirectory(atPath: dir)
-            
-            for url in directoryContents {
-                print("Document contents:" + url)
-            }
-            return 1
-        } catch {
-           return 0
-        }
-    }()
-    
-    
     var body: some View {
         content
             .task{
