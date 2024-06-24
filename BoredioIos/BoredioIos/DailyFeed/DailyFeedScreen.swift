@@ -114,6 +114,7 @@ struct DailyFeedScreen: View {
             .overlay {
                 ZStack {
                     Text(activityData.activity)
+                        .padding(8)
                         .foregroundStyle(overlayActionsColor)
                         .font(.largeTitle)
                         .multilineTextAlignment(.center)

@@ -24,15 +24,17 @@ final class BottomBarNavigationFlow: Base.FlowCoordinatorNoDeepLink {
     }
     
     func setupTabBar() {
-        //TODO make all controllers in bottom bar
         
-        let dailyFeedController = DailyFeedViewController()
-        dailyFeedController.tabBarItem.title = NSLocalizedString("dayFeedTabBarTitle", comment: "")
-        dailyFeedController.tabBarItem.image = UIImage(systemName: "newspaper")
+        //TODO i cant make it before rootViewController is set duno how this should work
+        let dailyFeedFlow = DailyFeedFlowCoordinator()
+        addChild(dailyFeedFlow)
+        let dailyFeedNavController = dailyFeedFlow.start()
+        dailyFeedNavController.tabBarItem.title = NSLocalizedString("dayFeedTabBarTitle", comment: "")
+        dailyFeedNavController.tabBarItem.image = UIImage(systemName: "newspaper")
         
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [
-            dailyFeedController
+            dailyFeedNavController
         ]
         rootViewController = tabBarController
         

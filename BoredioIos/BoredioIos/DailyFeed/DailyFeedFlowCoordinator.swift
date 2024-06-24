@@ -12,11 +12,14 @@ import UIKit
 
 final class DailyFeedFlowCoordinator: Base.FlowCoordinatorNoDeepLink {
     
-    override func start(with: UINavigationController) {
-        super.start(with: with)
+    override func start() -> UIViewController {
+        super.start()
+        
         let vc = DailyFeedViewController()
+        let navVC = UINavigationController(rootViewController: vc)
+        rootViewController = vc
+        navigationController = navVC
         
-        
-        navigationController?.pushViewController(vc, animated: false)
+        return navVC
     }
 }
