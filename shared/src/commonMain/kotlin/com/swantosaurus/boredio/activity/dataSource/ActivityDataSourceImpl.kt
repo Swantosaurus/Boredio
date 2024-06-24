@@ -5,6 +5,7 @@ import com.swantosaurus.boredio.activity.dataSource.imageGenerating.ImageGenerat
 import com.swantosaurus.boredio.activity.dataSource.local.ActivityLocalDataSource
 import com.swantosaurus.boredio.activity.dataSource.remote.ActivityRemoteDataSource
 import com.swantosaurus.boredio.activity.model.Activity
+import com.swantosaurus.boredio.activity.model.ActivityType
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.DelicateCoroutinesApi
 import kotlinx.coroutines.ExperimentalCoroutinesApi
@@ -131,6 +132,55 @@ internal class ActivityDataSourceImpl(
     }
 
     private fun getDbActivity(activity: Activity): Activity = getDbActivityByKey(activity.key)!!
+
+    override suspend fun getRandomByParameters(
+        types: List<ActivityType>,
+        minParticipants: Int?,
+        maxParticipants: Int?,
+        minPrice: Double?,
+        maxPrice: Double?,
+        minAccessibility: Double?,
+        maxAccessibility: Double?,
+        storeLocal: Boolean,
+        generateImage: Boolean,
+        onImageReady: (Activity) -> Unit
+    ): Activity? {
+        if(generateImage && !storeLocal) {
+            logger.e { "generateImage is true but storeLocal is false -- not allowed" }
+            return null
+        }
+        val activity = try {
+            activityRemoteDataSource.getRandomByParameters(
+                types,
+                minParticipants,
+                maxParticipants,
+                minPrice,
+                maxPrice,
+                minAccessibility,
+                maxAccessibility
+            )
+        } catch (e: Exception) {
+            logger.e(e) { "Error fetching activity by parameters" }
+            return null
+        }.toActivity(false)
+
+        if(storeLocal || generateImage) {
+            if (activityLocalDataSource.getActivitiesByKey(activity.key) == null) {
+                storeActivity(activity)
+            }
+        }
+        if(generateImage) {
+            val imgPath = imageGeneratingDataSource.getImageForActivity(activity)
+            if(imgPath != null) {
+                storeActivity(activity.copy(path = imgPath))
+                onImageReady(activity)
+            } else {
+                logger.e { "Error generating image for activity" }
+            }
+        }
+
+        return activity
+    }
 
     private fun getDbActivityByKey(key: String) : Activity? =
         activityLocalDataSource.getActivitiesByKey(key)?.let {
