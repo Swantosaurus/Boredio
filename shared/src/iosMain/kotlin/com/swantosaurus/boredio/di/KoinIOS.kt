@@ -3,9 +3,9 @@ package com.swantosaurus.boredio.di
 import com.swantosaurus.boredio.AppInfo
 import com.swantosaurus.boredio.activity.dataSource.local.DatabaseDriverFactory
 import com.swantosaurus.boredio.dataSource.activity.local.IOSDatabaseDriverFactory
-import com.swantosaurus.boredio.fileSystem.getBaseDataPath
 import com.swantosaurus.boredio.imageGenerating.ImageGenerator
 import com.swantosaurus.boredio.screens.DailyFeedViewModel
+import com.swantosaurus.boredio.screens.SearchViewModel
 import org.koin.core.KoinApplication
 import org.koin.core.component.KoinComponent
 import org.koin.dsl.module
@@ -14,6 +14,7 @@ actual val platformModule = module {
     factory<DatabaseDriverFactory> {
         IOSDatabaseDriverFactory()
     }
+    single { SearchViewModel(activityDataSource = get(), get()) }
     single { DailyFeedViewModel(activityDataSource = get(), preferences = get()) }
 }
 
@@ -27,10 +28,9 @@ fun initKoinIos(
         single { appInfo }
         single { doOnStartup }
     }
-){
-    println("base dataPath: getBaseDataPath(): ${getBaseDataPath()}")
-}
+){}
 
 object KotlinDependencies : KoinComponent {
     fun getDailyFeedViewModel() = getKoin().get<DailyFeedViewModel>()
+    fun getSearchViewModel() = getKoin().get<SearchViewModel>()
 }

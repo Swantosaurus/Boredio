@@ -1,6 +1,7 @@
 package com.swantosaurus.boredio.activity.model
 
 import kotlinx.datetime.LocalDateTime
+import kotlinx.serialization.Serializable
 
 /**
  * in app representation of an activity
@@ -20,9 +21,11 @@ data class Activity(
     val completeDate: LocalDateTime?,
     val ignore: Boolean,
     val isDailyFeed: Boolean,
-    val path: String?
+    val path: String?,
+    val isStored: Boolean,
 )
 
+@Serializable
 enum class ActivityType {
     EDUCATION,
     RECREATIONAL,

@@ -16,4 +16,27 @@
     <string name="dayFeedTabBarTitle">Day Feed</string>
     <string name="accountTabBarTitle">Account</string>
     <string name="searchTabBarTitle">Search</string>
+    <string name="searchScreenTitle">AcivitySearch</string>
+    <string name="searchInitScreenText">Start by selecting filters and hit search to search in all activities. You can\'t find by actiity itself but you can find activities coresponding to given parameters and than save them to your collection.</string>
+    <string name="searchInitButton">Search</string>
+    <string name="searchErrorScreenText">Error laoding activities for current filter try again later</string>
+    <string name="searchErrorReloadButton">Reload</string>
+    <string name="searchEmptyScreenText">Nothing Found for current filters</string>
+    <string name="searchLoadMoreButton">Load More</string>
+    <string name="searchCardActivityLabel">Activity:</string>
+    <string name="searchCardTypeLabel">Type:</string>
+    <string name="searchCardParticipants">Participants:</string>
+    <string name="searchCardPrice">Cost:</string>
+    <string name="searchCardAccessibility">Accessibility:</string>
+    <string name="searchScreenFilterButton">Search</string>
+    <string name="mesureVeryLow">Very Low</string>
+    <string name="mesureLow">Low</string>
+    <string name="mesureMedium">Medium</string>
+    <string name="mesureHigh">High</string>
+    <string name="mesureVeryHigh">Very High</string>
+    <string name="searchFilterTypeLabel">Activity Type:</string>
+    <string name="searchFilterParticipantsLabel">Participants</string>
+    <string name="searchFilterPriceLabel">Price</string>
+    <string name="searchFilterAccessbilityLabel">Accessibility</string>
+    <string name="searchScreenResetFiltersButton">Reset Filters</string>
 </resources>

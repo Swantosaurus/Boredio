@@ -1,5 +1,6 @@
 package com.swantosaurus.boredio.activity.dataSource.remote
 
+import co.touchlab.kermit.Logger
 import com.swantosaurus.boredio.activity.dataSource.remote.model.ActivityRemoteModel
 import com.swantosaurus.boredio.activity.model.ActivityType
 import io.ktor.client.HttpClient
@@ -8,6 +9,8 @@ import io.ktor.client.request.get
 import io.ktor.http.parameters
 
 private const val DOMAIN = "https://bored.api.lewagon.com/api"
+
+private val logger = Logger.withTag("ActivityRemoteDataSource")
 
 internal class ActivityRemoteDataSource(private val client: HttpClient){
     internal suspend fun getNewRandom(): ActivityRemoteModel =
@@ -39,6 +42,7 @@ internal class ActivityRemoteDataSource(private val client: HttpClient){
         minAccessibility: Double? = null,
         maxAccessibility: Double? = null,
     ): ActivityRemoteModel {
+
         val minParticipantsX: Int = minParticipants?.takeIf { it >= 0 } ?: 0
         val maxParticipantsX =
             maxParticipants?.takeIf { it >= minParticipantsX } ?: (minParticipantsX + 10)
@@ -47,19 +51,37 @@ internal class ActivityRemoteDataSource(private val client: HttpClient){
         val minAccessibilityX = minAccessibility?.takeIf { it in 0.0..1.0 } ?: 0.0
         val maxAccessibilityX = maxAccessibility?.takeIf { it >= minAccessibilityX } ?: 1.0
 
-        return client.get("$DOMAIN/activity") {
-            parameters {
-                types.forEach {
-                    append("type", it.name.lowercase())
+
+        val request = client.get("$DOMAIN/activity") {
+
+            url {
+                if(types.isNotEmpty()) {
+                    parameters.appendAll("type", types.map { it.name.lowercase() })
                 }
-                append("minparticipants", minParticipantsX.toString())
-                append("maxparticipants", maxParticipantsX.toString())
-                append("minprice", minPriceX.toString())
-                append("maxprice", maxPriceX.toString())
-                append("minaccessibility", minAccessibilityX.toString())
-                append("maxaccessibility", maxAccessibilityX.toString())
+                parameters.append("minparticipants", minParticipants.toString())
+                parameters.append("maxparticipants", maxParticipantsX.toString())
+                parameters.append("minprice", minPriceX.toString())
+                parameters.append("maxprice", maxPriceX.toString())
+                parameters.append("minaccessibility", minAccessibilityX.toString())
+                parameters.append("maxaccessibility", maxAccessibilityX.toString())
+
             }
-        }.body()
+        }
+
+        logger.d {
+            "getRandomByParametersConfigured: " +
+                    "minParticipantsX: $minParticipantsX, " +
+                    "maxParticipantsX: $maxParticipantsX, " +
+                    "minPriceX: $minPriceX, " +
+                    "maxPriceX: $maxPriceX, " +
+                    "minAccessibilityX: $minAccessibilityX, " +
+                    "maxAccessibilityX: $maxAccessibilityX \n" +
+                    "request: ${request.body<String>()}"
+        }
+
+
+
+        return request.body()
     }
 
     internal suspend fun getActivityByKey(key: String): ActivityRemoteModel =

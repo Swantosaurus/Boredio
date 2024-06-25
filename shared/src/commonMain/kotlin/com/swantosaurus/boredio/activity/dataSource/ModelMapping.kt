@@ -11,7 +11,7 @@ import kotlinx.datetime.toInstant
 import kotlinx.datetime.toLocalDateTime
 
 
-fun ActivityRemoteModel.toActivity(isDailyFeed: Boolean): Activity {
+fun ActivityRemoteModel.toActivity(isDailyFeed: Boolean, isSaved: Boolean): Activity {
     val fetchDate = Clock.System.now().toLocalDateTime(timeZone = TimeZone.currentSystemDefault())
     val type = ActivityType.valueOf(type.uppercase())
 
@@ -30,7 +30,8 @@ fun ActivityRemoteModel.toActivity(isDailyFeed: Boolean): Activity {
         completeDate = null,
         ignore = false,
         isDailyFeed = isDailyFeed,
-        path = null
+        path = null,
+        isStored = isSaved
     )
 }
 
@@ -79,6 +80,7 @@ fun ActivityDatabaseModel.toActivity(): Activity {
         completeDate = completeDate,
         ignore = ignore,
         isDailyFeed = isDailyFeed,
-        path = path
+        path = path,
+        isStored = true
     )
 }

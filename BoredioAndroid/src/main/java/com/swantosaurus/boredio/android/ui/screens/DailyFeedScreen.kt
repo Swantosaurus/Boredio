@@ -1,4 +1,4 @@
-package com.swantosaurus.boredio.android.ui
+package com.swantosaurus.boredio.android.ui.screens
 
 import android.util.Log
 import androidx.compose.foundation.background
@@ -22,7 +22,6 @@ import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Refresh
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Card
-import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
@@ -56,6 +55,9 @@ import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import com.swantosaurus.boredio.activity.model.Activity
 import com.swantosaurus.boredio.android.R
+import com.swantosaurus.boredio.android.ui.Color.AlertRed
+import com.swantosaurus.boredio.android.ui.Color.SuccessGreen
+import com.swantosaurus.boredio.android.ui.util.LoadingScreen
 import com.swantosaurus.boredio.screens.DailyFeedState
 import com.swantosaurus.boredio.screens.DailyFeedViewModel
 import org.koin.androidx.compose.koinViewModel
@@ -80,9 +82,7 @@ fun DailyFeedScreen(
             Column(Modifier.padding(paddingValues)) {
                 when (feedState) {
                     is DailyFeedState.Loading -> {
-                        Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
-                            CircularProgressIndicator()
-                        }
+                        LoadingScreen()
                     }
 
                     is DailyFeedState.Error -> {
@@ -179,8 +179,8 @@ private fun ActivityBox(
                 modifier = Modifier
                     .fillMaxSize()
                     .background(
-                        if (activity.completed) Color(75, 181, 67, (255 * 0.6).toInt())
-                        else if (activity.ignore) Color(181, 67, 67, (255 * 0.6).toInt())
+                        if (activity.completed) SuccessGreen.copy(alpha = 0.6f)
+                        else if (activity.ignore) AlertRed.copy(alpha = 0.6f)
                         else Color(0, 0, 0, (255 * 0.4).toInt())
                     )
             ) {

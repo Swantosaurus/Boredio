@@ -74,10 +74,9 @@ internal class ActivityDataSourceImpl(
             }
 
             activityRemoteDataSource.getActivityByKey(key).let {
-                it.toActivity(false).let { activity ->
+                it.toActivity(isDailyFeed = false, isSaved = false).let { activity ->
                     imageGeneratingDataSource.getImageForActivity(activity)
-                    storeActivity(activity)
-                    return activity
+                    return storeActivity(activity)
                 }
             }
         } catch (e: Exception) {
@@ -102,7 +101,7 @@ internal class ActivityDataSourceImpl(
         } catch (e: Exception) {
             logger.e(e){ "Error fetching new activity" }
             return@getNewRandomInternal null
-        }.toActivity(isDailyFeed = isDailyFeed)
+        }.toActivity(isDailyFeed = isDailyFeed, isSaved = false)
 
         getDbActivityByKey(newActivity.key)?.let {
             if(it.completed || it.ignore) {
@@ -111,7 +110,7 @@ internal class ActivityDataSourceImpl(
             }
         }
 
-        storeActivity(newActivity)
+        newActivity = storeActivity(newActivity)
         //this is slow -- we run it in the background
         backgroundQueue.launch {
             val imgPath = imageGeneratingDataSource.getImageForActivity(newActivity)
@@ -119,15 +118,12 @@ internal class ActivityDataSourceImpl(
             if(imgPath != null) {
                 logger.i { "image path generated: $imgPath" }
 
-                newActivity = newActivity.copy(path = imgPath)
-                storeActivity(newActivity)
+                newActivity = storeActivity(newActivity.copy(path = imgPath))
                 onImageReady(newActivity)
             } else {
                 logger.e { "Error generating image for activity" }
             }
         }
-
-
         return newActivity
     }
 
@@ -149,7 +145,7 @@ internal class ActivityDataSourceImpl(
             logger.e { "generateImage is true but storeLocal is false -- not allowed" }
             return null
         }
-        val activity = try {
+        var activity = try {
             activityRemoteDataSource.getRandomByParameters(
                 types,
                 minParticipants,
@@ -162,17 +158,22 @@ internal class ActivityDataSourceImpl(
         } catch (e: Exception) {
             logger.e(e) { "Error fetching activity by parameters" }
             return null
-        }.toActivity(false)
+        }.toActivity(isDailyFeed = false, isSaved = false)
+
+        getDbActivityByKey(activity.key)?.let {
+            logger.i { "Activity already exists in database" }
+            return it
+        }
 
         if(storeLocal || generateImage) {
             if (activityLocalDataSource.getActivitiesByKey(activity.key) == null) {
-                storeActivity(activity)
+                activity = storeActivity(activity)
             }
         }
         if(generateImage) {
             val imgPath = imageGeneratingDataSource.getImageForActivity(activity)
             if(imgPath != null) {
-                storeActivity(activity.copy(path = imgPath))
+                activity = storeActivity(activity.copy(path = imgPath))
                 onImageReady(activity)
             } else {
                 logger.e { "Error generating image for activity" }
