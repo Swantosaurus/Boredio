@@ -21,6 +21,7 @@ final class DailyFeedViewController: UIViewController {
         let rootView = DailyFeedScreen()
         let vc = UIHostingController(rootView: rootView)
         embedController(vc)
+        //TODO does it kill it self some day?
         Task {
             for await rerolls in viewModel.rerolls {
                 self.rerolls = rerolls!.intValue

@@ -34,7 +34,7 @@
     <string name="mesureMedium">Medium</string>
     <string name="mesureHigh">High</string>
     <string name="mesureVeryHigh">Very High</string>
-    <string name="searchFilterTypeLabel">Activity Type:</string>
+    <string name="searchFilterTypeLabel">Activity Type</string>
     <string name="searchFilterParticipantsLabel">Participants</string>
     <string name="searchFilterPriceLabel">Price</string>
     <string name="searchFilterAccessbilityLabel">Accessibility</string>

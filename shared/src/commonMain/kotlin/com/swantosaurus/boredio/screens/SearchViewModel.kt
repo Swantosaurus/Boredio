@@ -17,9 +17,11 @@ import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.InternalCoroutinesApi
 import kotlinx.coroutines.cancel
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.flow.map
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.newSingleThreadContext
@@ -76,14 +78,20 @@ class SearchViewModel(
             minAccessibility = minAccessibility,
             maxAccessibility = maxAccessibility
         )
-    }
+    }.stateIn(scope = backgroundSingleThreadScope, started = SharingStarted.WhileSubscribed(), initialValue = CallParameters.DEFAULT)
+
+
+
 
 
     private val _searchState = MutableStateFlow<SearchState>(SearchState.Init)
     val searchState = _searchState.asStateFlow()
 
-    private var _canLoadMore = MutableStateFlow<Boolean>(true)
-    var canLoadMore = _canLoadMore.asStateFlow()
+private val _canLoadMore = MutableStateFlow<Boolean>(true)
+val canLoadMore = _canLoadMore.asStateFlow()
+
+private val _showingBottomSheet = MutableStateFlow<Boolean>(false)
+val showingBottomSheet = _showingBottomSheet.asStateFlow()
 
 
     fun reload() {
@@ -109,10 +117,16 @@ class SearchViewModel(
         }
     }
 
+fun setBottomSheet(to: Boolean?) {
+    _showingBottomSheet.update {
+        to ?: !it
+    }
+}
+
     fun changeParams(
         calledParameters: CallParameters
     ) {
-        logger.d { "maxPrice ${calledParameters.maxPrice}" }
+        logger.d { "change params to $calledParameters" }
         backgroundSingleThreadScope.launch {
             preferences.edit {
                 it[typesKey] = Json.encodeToString(calledParameters.types)
@@ -327,6 +341,30 @@ data class CallParameters(
     val minAccessibility: Double = 0.0,
     val maxAccessibility: Double = 1.0,
 ) {
+    fun isInParameters(activityType: ActivityType): Boolean {
+        return types.contains(activityType)
+    }
+
+    fun addType(activityType: ActivityType): CallParameters {
+        return copy(types = types + activityType)
+    }
+
+    fun removeType(activityType: ActivityType): CallParameters {
+        return copy(types = types - activityType)
+    }
+
+    fun setParticipants(min: Int, max: Int): CallParameters {
+        return copy(minParticipants = min, maxParticipants = max)
+    }
+
+    fun setPrice(min: Double, max: Double): CallParameters {
+        return copy(minPrice = min, maxPrice = max)
+    }
+
+    fun setAccessibility(min: Double, max: Double): CallParameters {
+        return copy(minAccessibility = min, maxAccessibility = max)
+    }
+
     companion object {
         val DEFAULT = CallParameters()
     }

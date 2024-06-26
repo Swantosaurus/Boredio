@@ -10,15 +10,40 @@ import Foundation
 import shared
 import SwiftUI
 
+class ObservableDailyFeedState: ObservableObject {
+    @Published var dailyFeedState: DailyFeedState?
+    
+    init(dailyFeedState: DailyFeedState? = nil) {
+        self.dailyFeedState = dailyFeedState
+    }
+    
+    
+    func set(_ x: DailyFeedState) {
+        self.dailyFeedState = x
+    }
+}
+
+class ObservableDayResetState: ObservableObject {
+    @Published var dayResetState: DayResetState?
+    
+    init(dayResetState: DayResetState? = nil) {
+        self.dayResetState = dayResetState
+    }
+    
+    func set(_ x: DayResetState) {
+        self.dayResetState = x
+    }
+}
+
 
 struct DailyFeedScreen: View {
     @State var dailyFeedViewModel: DailyFeedViewModel?
     
-    @State var dailyFeedState: DailyFeedState?
+    @ObservedObject var dailyFeedState: ObservableDailyFeedState = ObservableDailyFeedState()
     
-    @State var rerolls: KotlinInt?
+    @State var rerolls: Int?
     
-    @State var dayResetState : DayResetState?
+    @ObservedObject var dayResetState : ObservableDayResetState = ObservableDayResetState()
     
     var body: some View {
         content
@@ -28,8 +53,7 @@ struct DailyFeedScreen: View {
                     self.dailyFeedViewModel = viewModel
                     
                     for await rerolls in viewModel.rerolls {
-                        print("rerols did change \(String(describing: rerolls))")
-                        self.rerolls = rerolls
+                        self.rerolls = rerolls?.intValue
                     }
                 }) {
                     viewModel.clear()
@@ -39,23 +63,22 @@ struct DailyFeedScreen: View {
                 let viewModel = KotlinDependencies.shared.getDailyFeedViewModel()
                 
                 for await dailyFeedState in viewModel.dailyFeedState {
-                    print("daily feed state did change \(dailyFeedState)")
-                    self.dailyFeedState = dailyFeedState
+                    print("daily feed")
+                    self.dailyFeedState.set(dailyFeedState)
                 }
             }
             .task {
                 let viewModel = KotlinDependencies.shared.getDailyFeedViewModel()
                 
                 for await dayResetState in viewModel.dayReloadState {
-                    print("dayResetState did change \(dayResetState)")
-                    self.dayResetState = dayResetState
+                    self.dayResetState.set(dayResetState)
                 }
             }
     }
     
     var content: some View {
         VStack {
-            switch dailyFeedState {
+            switch dailyFeedState.dailyFeedState {
             case is DailyFeedStateError:
                 Button(NSLocalizedString("reloadButton", comment: ""), action: {dailyFeedViewModel?.retryInit()})
             case is DailyFeedStateLoading, .none:
