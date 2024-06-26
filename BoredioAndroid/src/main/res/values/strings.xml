@@ -51,5 +51,12 @@
     <string name="aboutScreenGoogleAPITitle">Google Could</string>
     <string name="aboutScreenGoogleAPIText">Google could and google sheets were used to store the strings for multiplatform project</string>
     <string name="aboutScreenPrivacyPolicyTitle">Privacy Policy</string>
-    <string name="aboutScreenPrivacyPolicyText">Bored.io doens\'t store any user data. All the data are stored in you device and you can clear all the data except currend daily Feed in User sertion</string>
+    <string name="aboutScreenPrivacyPolicyText">Bored.io doens\'t store any user data. All the data are stored in you device and you can clear all the data except currend Daily Feed in Account sertion</string>
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+    <string name="saturday">Saturday</string>
+    <string name="sunday">Sunday</string>
 </resources>

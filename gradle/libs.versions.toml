@@ -18,11 +18,14 @@ compose = "1.6.8"
 compose-material3 = "1.2.1"
 nav-version = "2.7.7"
 data-store = "1.1.1"
+vico = "2.0.0-alpha.21"
+
 
 
 
 [libraries]
 coil-compose = { module = "io.coil-kt:coil-compose", version.ref = "coil" }
+kotlin-stdlib = { module = "org.jetbrains.kotlin:kotlin-stdlib", version.ref = "kotlin" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 androidx-activity-compose = { module = "androidx.activity:activity-compose", version.ref = "androidx-activityCompose" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
@@ -56,6 +59,7 @@ compose-animation = { module = "androidx.compose.animation:animation" }
 compose-navigation = { module = "androidx.navigation:navigation-compose", version.ref = "nav-version"}
 dataStore-preferences = { module = "androidx.datastore:datastore-preferences", version.ref = "data-store" }
 dataStore = { module = "androidx.datastore:datastore", version.ref = "data-store" }
+vico-compose-m3 = { group = "com.patrykandpatrick.vico", name = "compose-m3", version.ref = "vico" }
 
 
 

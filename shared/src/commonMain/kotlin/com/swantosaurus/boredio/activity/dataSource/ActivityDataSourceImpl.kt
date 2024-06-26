@@ -19,14 +19,18 @@ import kotlinx.datetime.toLocalDateTime
 private const val FETCH_ATTEMPTS = 3
 private const val DAILY_FEED_CNT = 5
 
+
+private val logger = Logger.withTag("ActivityDataSourceImpl")
+
+
+@OptIn(ExperimentalCoroutinesApi::class, DelicateCoroutinesApi::class)
+private val backgroundQueue = CoroutineScope(newSingleThreadContext("ActivityDataSourceImpl"))
+
 internal class ActivityDataSourceImpl(
     private val activityRemoteDataSource: ActivityRemoteDataSource,
     private val activityLocalDataSource: ActivityLocalDataSource,
     private val imageGeneratingDataSource: ImageGeneratingDataSource
 ) : ActivityDataSource {
-    private val logger = Logger.withTag("ActivityDataSourceImpl")
-    @OptIn(ExperimentalCoroutinesApi::class, DelicateCoroutinesApi::class)
-    private val backgroundQueue = CoroutineScope(newSingleThreadContext("ActivityDataSourceImpl"))
 
     override suspend fun getDailyFeed(onImageReady: (Activity) -> Unit): List<Activity>? {
         var dailyFeedDb = activityLocalDataSource.getDailyFeed().map { it.toActivity() }
@@ -86,6 +90,30 @@ internal class ActivityDataSourceImpl(
     }
     override suspend fun getAllStoredActivities() : List<Activity> {
         return activityLocalDataSource.getAllActivities().map { it.toActivity() }
+    }
+
+    override suspend fun getAllCompletedActivities(): List<Activity> {
+        return activityLocalDataSource.getAllCompletedActivities().map {
+            logger.d { "completed activity: $it"}
+            it.toActivity()
+        }
+    }
+
+    override suspend fun getFavoriteActivities(): List<Activity> {
+        return activityLocalDataSource.getAllFavoriteActivities().map { it.toActivity() }
+    }
+
+    override suspend fun getAllIgnoredActivities(): List<Activity> {
+        return activityLocalDataSource.getAllIgnoredActivities().map { it.toActivity() }
+    }
+
+    override suspend fun getCompletedBetweenDates(startDate: Long, endDate: Long): List<Activity> {
+        return activityLocalDataSource.getAllCompletedActivitiesInTimeRange(startDate, endDate)
+            .map { it.toActivity() }
+    }
+
+    override suspend fun getAllWithGeneratedImage(): List<Activity> {
+        return activityLocalDataSource.getAllWithGeneratedImage().map { it.toActivity() }
     }
 
 

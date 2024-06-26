@@ -70,4 +70,13 @@ internal class ActivityLocalDataSource(databaseDriverFactory: DatabaseDriverFact
 
     internal fun getDailyFeed() : List<ActivityDatabaseModel> =
         dbQuery.getDailyFeed().executeAsList()
+
+    //idk tried to make it in query it didn't work
+    internal fun getAllWithGeneratedImage(): List<ActivityDatabaseModel> {
+        val all = getAllActivities()
+        return all.filter { it.path != null }
+    }
+
+    internal fun getAllCompletedActivitiesInTimeRange(start: Long, end: Long) =
+        dbQuery.getAllCompletedActivitiesInTimeRange(start, end).executeAsList()
 }
