@@ -69,12 +69,15 @@ struct SearchScreen: View {
                     self.maxPrice = currentParams.maxPrice
                     self.minParticipants = Double(currentParams.minParticipants - 1)/9
                     self.maxParticipants = Double(currentParams.maxParticipants - 1)/9
+                    self.minAccessibility = currentParams.minAccessibility
+                    self.maxAccessibility = currentParams.maxAccessibility
                     
                     self.currentParams.set(currentParams)
                 }
             }
             .task {
                 let vm = KotlinDependencies.shared.getSearchViewModel()
+                
                 for await searchState in vm.searchState {
                     print("searchState: \(searchState)")
                     self.searchState.set(searchState)
@@ -247,7 +250,7 @@ struct SearchScreen: View {
             
             Divider()
             Text(NSLocalizedString("searchFilterParticipantsLabel", comment: ""))
-            Text("\(minParticipants) - \(maxParticipants)")
+            Text("\(Int((minParticipants*9+1).rounded(.toNearestOrAwayFromZero))) - \(Int((maxParticipants*9+1).rounded(.toNearestOrAwayFromZero)))")
             DoubleSlider(
                 startFraction: $minParticipants,
                 endFraction: $maxParticipants,
@@ -255,7 +258,7 @@ struct SearchScreen: View {
                     searchViewModel?
                         .changeParams(
                             calledParameters: currentParams
-                                .setParticipants(min: Int32((start*9+1).rounded()), max: Int32((end*9+1).rounded()))
+                                .setParticipants(min: Int32((start*9+1).rounded(.toNearestOrAwayFromZero)), max: Int32((end*9+1).rounded(.toNearestOrAwayFromZero)))
                         )
                 }
             )
@@ -265,7 +268,7 @@ struct SearchScreen: View {
                 searchViewModel?.changeParams(calledParameters: currentParams.setPrice(min: start, max: end))
             }
             Text(NSLocalizedString("searchFilterAccessbilityLabel", comment: ""))
-            Text("\(currentParams.minAccessibility) - \(currentParams.maxAccessibility)")
+            Text("\(minAccessibility.getAccesibilityDescription()) - \(maxAccessibility.getAccesibilityDescription())")
             
             DoubleSlider(
                 startFraction: $minAccessibility,
