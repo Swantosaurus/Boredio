@@ -20,5 +20,5 @@ This is part of school project at FIT CTU Prague Czech Republic
 - <a href="https://skie.touchlab.co/intro#getting-started">SKIE - Kotlin features in swift integration</a>
 - <a href="https://github.com/AckeeCZ/ACKategories">ACKategories - iOS life simpler</a>
 - <a href="https://github.com/AckeeCZ/ACKategories">ACKategories - iOS life simpler</a>
-- <a href="https://github.com/ciaranrobrien/SwiftUIFlow">SwiftUIFlow - HFlow <3</a> 
+- <a href="https://github.com/tevelee/SwiftUI-Flow">SwiftUIFlow - HFlow <3</a> 
 
