@@ -43,13 +43,20 @@ final class BottomBarNavigationFlow: Base.FlowCoordinatorNoDeepLink {
         
         
         
+        // MARK: About
+        let aboutFlow = AboutFlowCoordinator()
+        addChild(aboutFlow)
+        let aboutNC = aboutFlow.start()
+        aboutNC.tabBarItem.title = NSLocalizedString("aboutTabBarTitle", comment: "")
+        aboutNC.tabBarItem.image = UIImage(systemName: "info.circle")
         
         // MARK: TAB BAR
         
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [
             dailyFeedNavController,
-            searchNC
+            searchNC,
+            aboutNC
         ]
         rootViewController = tabBarController
         

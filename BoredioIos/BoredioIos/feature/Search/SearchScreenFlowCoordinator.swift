@@ -15,7 +15,6 @@ final class SearchScreenFlowCoordinator: Base.FlowCoordinatorNoDeepLink {
     override func start() -> UIViewController {
         super.start()
         
-        
         let vc = SearchScreenViewController()
         let navVC = UINavigationController(rootViewController: vc)
         

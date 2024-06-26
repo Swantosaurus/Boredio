@@ -1,578 +1,597 @@
 {
-    "sourceLanguage" : "en",
-        "strings" : {
-            "reloadButton" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Reload"
-                       }
-                   }
-               }
-           },
-            "dailyFeedLoadError" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Couldn't load daily feed please try again or contact support"
-                       }
-                   }
-               }
-           },
-            "loading" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Loading ..."
-                       }
-                   }
-               }
-           },
-            "dailyFeedScreenTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Daily Challanges"
-                       }
-                   }
-               }
-           },
-            "rerolls" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Rerolls"
-                       }
-                   }
-               }
-           },
-            "ok" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Ok"
-                       }
-                   }
-               }
-           },
-            "noRerollsTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "No rerolls"
-                       }
-                   }
-               }
-           },
-            "noRerollsText" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "You have no more rerolls available for today wait for tomorrow or deal with current task"
-                       }
-                   }
-               }
-           },
-            "dismiss" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Dismiss"
-                       }
-                   }
-               }
-           },
-            "dismissActivityTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Dismiss this activity??"
-                       }
-                   }
-               }
-           },
-            "dismissActivityText" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "If you dismiss this activity it wont apear again."
-                       }
-                   }
-               }
-           },
-            "cancel" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Cancel"
-                       }
-                   }
-               }
-           },
-            "activity" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Activity"
-                       }
-                   }
-               }
-           },
-            "dayFeedTabBarTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Day Feed"
-                       }
-                   }
-               }
-           },
-            "accountTabBarTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Account"
-                       }
-                   }
-               }
-           },
-            "aboutTabBarTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "About"
-                       }
-                   }
-               }
-           },
-            "searchTabBarTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Search"
-                       }
-                   }
-               }
-           },
-            "searchScreenTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "AcivitySearch"
-                       }
-                   }
-               }
-           },
-            "searchInitScreenText" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Start by selecting filters and hit search to search in all activities. You can't find by actiity itself but you can find activities coresponding to given parameters and than save them to your collection."
-                       }
-                   }
-               }
-           },
-            "searchInitButton" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Search"
-                       }
-                   }
-               }
-           },
-            "searchErrorScreenText" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Error laoding activities for current filter try again later"
-                       }
-                   }
-               }
-           },
-            "searchErrorReloadButton" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Reload"
-                       }
-                   }
-               }
-           },
-            "searchEmptyScreenText" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Nothing Found for current filters"
-                       }
-                   }
-               }
-           },
-            "searchLoadMoreButton" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Load More"
-                       }
-                   }
-               }
-           },
-            "searchCardActivityLabel" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Activity:"
-                       }
-                   }
-               }
-           },
-            "searchCardTypeLabel" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Type:"
-                       }
-                   }
-               }
-           },
-            "searchCardParticipants" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Participants:"
-                       }
-                   }
-               }
-           },
-            "searchCardPrice" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Cost:"
-                       }
-                   }
-               }
-           },
-            "searchCardAccessibility" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Accessibility:"
-                       }
-                   }
-               }
-           },
-            "searchScreenFilterButton" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Search"
-                       }
-                   }
-               }
-           },
-            "mesureVeryLow" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Very Low"
-                       }
-                   }
-               }
-           },
-            "mesureLow" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Low"
-                       }
-                   }
-               }
-           },
-            "mesureMedium" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Medium"
-                       }
-                   }
-               }
-           },
-            "mesureHigh" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "High"
-                       }
-                   }
-               }
-           },
-            "mesureVeryHigh" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Very High"
-                       }
-                   }
-               }
-           },
-            "searchFilterTypeLabel" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Activity Type"
-                       }
-                   }
-               }
-           },
-            "searchFilterParticipantsLabel" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Participants"
-                       }
-                   }
-               }
-           },
-            "searchFilterPriceLabel" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Price"
-                       }
-                   }
-               }
-           },
-            "searchFilterAccessbilityLabel" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Accessibility"
-                       }
-                   }
-               }
-           },
-            "searchScreenResetFiltersButton" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Reset Filters"
-                       }
-                   }
-               }
-           },
-            "aboutScreenTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "About"
-                       }
-                   }
-               }
-           },
-            "aboutScreenLicenseTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "License"
-                       }
-                   }
-               }
-           },
-            "aboutScreenLicenseText" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "This App is under MIT license - free to reuse and modify"
-                       }
-                   }
-               }
-           },
-            "aboutScreenDataSourcesTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Data Sources"
-                       }
-                   }
-               }
-           },
-            "aboutScreenBoredApiTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Bored API"
-                       }
-                   }
-               }
-           },
-            "aboutScreenBoredApiText" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Bored API is open source API with MIT license also free to contribute"
-                       }
-                   }
-               }
-           },
-            "aboutScreenOpenAiDalleTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "DALL-E"
-                       }
-                   }
-               }
-           },
-            "aboutScreenOpenAiDalleText" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Bored.io uses DALL-E from Open AI to generate images for activities since the API doesn't have any images. To eneble the image generation you have to provide API key since the tool isnt free to use at any scale. Also the daily Feed is limited due to generating limitations."
-                       }
-                   }
-               }
-           },
-            "aboutScreenGoogleAPITitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Google Could"
-                       }
-                   }
-               }
-           },
-            "aboutScreenGoogleAPIText" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Google could and google sheets were used to store the strings for multiplatform project"
-                       }
-                   }
-               }
-           },
-            "aboutScreenPrivacyPolicyTitle" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Privacy Policy"
-                       }
-                   }
-               }
-           },
-            "aboutScreenPrivacyPolicyText" : {
-                "extractionState" : "manual",
-                "localizations" : {
-                   "en" : {
-                       "stringUnit" : {
-                           "state" : "translated",
-                           "value" : "Bored.io doens't store any user data. All the data are stored in you device and you can clear all the data except currend daily Feed in User sertion"
-                       }
-                   }
-               }
-           }
+  "sourceLanguage" : "en",
+  "strings" : {
+    "%@" : {
+
     },
-    "version" : "1.0"
+    "%@ - %@" : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "%1$@ - %2$@"
+          }
+        }
+      }
+    },
+    "aboutScreenBoredApiText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bored API is open source API with MIT license also free to contribute"
+          }
+        }
+      }
+    },
+    "aboutScreenBoredApiTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bored API"
+          }
+        }
+      }
+    },
+    "aboutScreenDataSourcesTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Data Sources"
+          }
+        }
+      }
+    },
+    "aboutScreenGoogleAPIText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google could and google sheets were used to store the strings for multiplatform project"
+          }
+        }
+      }
+    },
+    "aboutScreenGoogleAPITitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Google Could"
+          }
+        }
+      }
+    },
+    "aboutScreenLicenseText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "This App is under MIT license - free to reuse and modify"
+          }
+        }
+      }
+    },
+    "aboutScreenLicenseTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "License"
+          }
+        }
+      }
+    },
+    "aboutScreenOpenAiDalleText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bored.io uses DALL-E from Open AI to generate images for activities since the API doesn't have any images. To eneble the image generation you have to provide API key since the tool isnt free to use at any scale. Also the daily Feed is limited due to generating limitations."
+          }
+        }
+      }
+    },
+    "aboutScreenOpenAiDalleTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "DALL-E"
+          }
+        }
+      }
+    },
+    "aboutScreenPrivacyPolicyText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bored.io doens't store any user data. All the data are stored in you device and you can clear all the data except currend daily Feed in User sertion"
+          }
+        }
+      }
+    },
+    "aboutScreenPrivacyPolicyTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Privacy Policy"
+          }
+        }
+      }
+    },
+    "aboutScreenTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        }
+      }
+    },
+    "aboutTabBarTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "About"
+          }
+        }
+      }
+    },
+    "accountTabBarTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Account"
+          }
+        }
+      }
+    },
+    "activity" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activity"
+          }
+        }
+      }
+    },
+    "cancel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cancel"
+          }
+        }
+      }
+    },
+    "dailyFeedLoadError" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Couldn't load daily feed please try again or contact support"
+          }
+        }
+      }
+    },
+    "dailyFeedScreenTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Daily Challanges"
+          }
+        }
+      }
+    },
+    "dayFeedTabBarTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Day Feed"
+          }
+        }
+      }
+    },
+    "dismiss" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dismiss"
+          }
+        }
+      }
+    },
+    "dismissActivityText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you dismiss this activity it wont apear again."
+          }
+        }
+      }
+    },
+    "dismissActivityTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Dismiss this activity??"
+          }
+        }
+      }
+    },
+    "loading" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Loading ..."
+          }
+        }
+      }
+    },
+    "message: %@" : {
+
+    },
+    "mesureHigh" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "High"
+          }
+        }
+      }
+    },
+    "mesureLow" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Low"
+          }
+        }
+      }
+    },
+    "mesureMedium" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Medium"
+          }
+        }
+      }
+    },
+    "mesureVeryHigh" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Very High"
+          }
+        }
+      }
+    },
+    "mesureVeryLow" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Very Low"
+          }
+        }
+      }
+    },
+    "noRerollsText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "You have no more rerolls available for today wait for tomorrow or deal with current task"
+          }
+        }
+      }
+    },
+    "noRerollsTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No rerolls"
+          }
+        }
+      }
+    },
+    "ok" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ok"
+          }
+        }
+      }
+    },
+    "reloadButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reload"
+          }
+        }
+      }
+    },
+    "rerolls" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rerolls"
+          }
+        }
+      }
+    },
+    "searchCardAccessibility" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accessibility:"
+          }
+        }
+      }
+    },
+    "searchCardActivityLabel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activity:"
+          }
+        }
+      }
+    },
+    "searchCardParticipants" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Participants:"
+          }
+        }
+      }
+    },
+    "searchCardPrice" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cost:"
+          }
+        }
+      }
+    },
+    "searchCardTypeLabel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Type:"
+          }
+        }
+      }
+    },
+    "searchEmptyScreenText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Nothing Found for current filters"
+          }
+        }
+      }
+    },
+    "searchErrorReloadButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reload"
+          }
+        }
+      }
+    },
+    "searchErrorScreenText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Error laoding activities for current filter try again later"
+          }
+        }
+      }
+    },
+    "searchFilterAccessbilityLabel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Accessibility"
+          }
+        }
+      }
+    },
+    "searchFilterParticipantsLabel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Participants"
+          }
+        }
+      }
+    },
+    "searchFilterPriceLabel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Price"
+          }
+        }
+      }
+    },
+    "searchFilterTypeLabel" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Activity Type"
+          }
+        }
+      }
+    },
+    "searchInitButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
+          }
+        }
+      }
+    },
+    "searchInitScreenText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Start by selecting filters and hit search to search in all activities. You can't find by actiity itself but you can find activities coresponding to given parameters and than save them to your collection."
+          }
+        }
+      }
+    },
+    "searchLoadMoreButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Load More"
+          }
+        }
+      }
+    },
+    "searchScreenFilterButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
+          }
+        }
+      }
+    },
+    "searchScreenResetFiltersButton" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Reset Filters"
+          }
+        }
+      }
+    },
+    "searchScreenTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "AcivitySearch"
+          }
+        }
+      }
+    },
+    "searchTabBarTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Search"
+          }
+        }
+      }
+    },
+    "THIS SCREAN SHOULDNT APPEAR" : {
+
+    }
+  },
+  "version" : "1.0"
 }
