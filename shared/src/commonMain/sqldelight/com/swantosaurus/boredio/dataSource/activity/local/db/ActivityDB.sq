@@ -47,3 +47,11 @@ SELECT * FROM ActivityDatabaseModel WHERE favorite = 1;
 
 getDailyFeed:
 SELECT * FROM ActivityDatabaseModel WHERE ActivityDatabaseModel.isDailyFeed = 1;
+
+getAllWithGeneratedPath:
+SELECT *
+FROM ActivityDatabaseModel
+WHERE ActivityDatabaseModel.path IS NOT NULL;
+
+getAllCompletedActivitiesInTimeRange:
+SELECT * FROM ActivityDatabaseModel WHERE completed = 1 AND completeDate BETWEEN ? AND ?;

@@ -3,6 +3,7 @@ package com.swantosaurus.boredio.di
 import com.swantosaurus.boredio.activity.dataSource.local.DatabaseDriverFactory
 import com.swantosaurus.boredio.dataSource.activity.local.AndroidDatabaseDriverFactory
 import com.swantosaurus.boredio.screenViewModels.AboutViewModel
+import com.swantosaurus.boredio.screenViewModels.AccountViewModel
 import com.swantosaurus.boredio.screenViewModels.DailyFeedViewModel
 import com.swantosaurus.boredio.screenViewModels.SearchViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
@@ -15,6 +16,9 @@ actual val platformModule = module {
     }
     viewModel {
         AboutViewModel(inAppUrls = get())
+    }
+    viewModel {
+        AccountViewModel(dataSource = get(), generatedImageFileSystem = get())
     }
     viewModel {
         SearchViewModel(activityDataSource = get(), preferences = get())

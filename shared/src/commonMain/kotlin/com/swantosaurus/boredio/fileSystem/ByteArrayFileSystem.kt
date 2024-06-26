@@ -41,4 +41,15 @@ open class ByteArrayFileSystem(private val basePath: Path) {
     }
 
     suspend fun exists(path: String): Boolean = fs.exists(basePath.resolve(path))
+
+    suspend fun getSizeOf(path: String?): Long {
+        if(path == null) {
+            logger.i { "reading current directory" }
+            fs.metadata(basePath).let {
+                logger.d { "metadata: $it" }
+                return it.size ?: -1
+            }
+        }
+        return fs.metadata(basePath.resolve(path)).size ?: -1
+    }
 }

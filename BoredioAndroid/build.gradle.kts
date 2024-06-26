@@ -66,5 +66,7 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.androidx.activity.compose)
     implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.vico.compose.m3)
+    implementation(libs.kotlinx.datetime)
     debugImplementation(libs.compose.ui.tooling)
 }

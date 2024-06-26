@@ -30,4 +30,14 @@ interface ActivityDataSource {
     suspend fun getActivityByKey(key: String) : Activity?
 
     suspend fun getAllStoredActivities() : List<Activity>
+
+    suspend fun getAllCompletedActivities() : List<Activity>
+
+    suspend fun getFavoriteActivities() : List<Activity>
+
+    suspend fun getAllIgnoredActivities() : List<Activity>
+
+    suspend fun getCompletedBetweenDates(startDate: Long, endDate: Long) : List<Activity>
+
+    suspend fun getAllWithGeneratedImage() : List<Activity>
 }
