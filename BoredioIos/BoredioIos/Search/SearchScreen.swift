@@ -64,7 +64,6 @@ struct SearchScreen: View {
                 let viewModel = KotlinDependencies.shared.getSearchViewModel()
 
                 for await currentParams in viewModel.currentParams {
-                    print("params updated: \(currentParams)")
                     self.minPrice = currentParams.minPrice
                     self.maxPrice = currentParams.maxPrice
                     self.minParticipants = Double(currentParams.minParticipants - 1)/9
@@ -79,7 +78,6 @@ struct SearchScreen: View {
                 let vm = KotlinDependencies.shared.getSearchViewModel()
                 
                 for await searchState in vm.searchState {
-                    print("searchState: \(searchState)")
                     self.searchState.set(searchState)
                 }
             }
@@ -290,6 +288,7 @@ struct SearchScreen: View {
                 }
                 Spacer()
             }
+            .padding()
             .buttonStyle(.bordered)
             Spacer()
         }

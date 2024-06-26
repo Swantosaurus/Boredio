@@ -126,7 +126,6 @@ fun setBottomSheet(to: Boolean?) {
     fun changeParams(
         calledParameters: CallParameters
     ) {
-        logger.d { "change params to $calledParameters" }
         backgroundSingleThreadScope.launch {
             preferences.edit {
                 it[typesKey] = Json.encodeToString(calledParameters.types)
