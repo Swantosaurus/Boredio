@@ -32,7 +32,6 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.RangeSlider
-import androidx.compose.material3.SheetValue
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
 import androidx.compose.material3.TopAppBar
@@ -41,6 +40,7 @@ import androidx.compose.material3.TopAppBarScrollBehavior
 import androidx.compose.material3.rememberBottomSheetScaffoldState
 import androidx.compose.material3.rememberStandardBottomSheetState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.remember
@@ -63,7 +63,6 @@ import com.swantosaurus.boredio.android.ui.util.priceString
 import com.swantosaurus.boredio.screens.CallParameters
 import com.swantosaurus.boredio.screens.SearchState
 import com.swantosaurus.boredio.screens.SearchViewModel
-import kotlinx.coroutines.launch
 import org.koin.androidx.compose.koinViewModel
 import kotlin.math.roundToInt
 
@@ -74,17 +73,20 @@ fun SearchScreen(
     val searchState by searchViewModel.searchState.collectAsState()
     val canLoadMore by searchViewModel.canLoadMore.collectAsState()
     val currentParams by searchViewModel.currentParams.collectAsState(CallParameters.DEFAULT)
+    val showingBottomSheet by searchViewModel.showingBottomSheet.collectAsState(false)
 
     SearchScreenContent(
         searchState = searchState,
         currentParams = currentParams,
         canLoadMore = canLoadMore,
         search = searchViewModel::search,
+        showingBottomSheet = showingBottomSheet,
         changeParamsCallParameters = searchViewModel::changeParams,
         loadMore = searchViewModel::loadMore,
         reload = searchViewModel::reload,
         save = searchViewModel::saveActivity,
-        likeToggle = searchViewModel::likeActivityToggle
+        likeToggle = searchViewModel::likeActivityToggle,
+        setBottomSheet = searchViewModel::setBottomSheet
     )
 }
 
@@ -94,6 +96,8 @@ private fun SearchScreenContent(
     searchState: SearchState,
     currentParams: CallParameters,
     canLoadMore: Boolean,
+    showingBottomSheet: Boolean,
+    setBottomSheet: (showing: Boolean?) -> Unit,
     search: () -> Unit,
     changeParamsCallParameters: (CallParameters) -> Unit,
     loadMore: () -> Unit,
@@ -106,24 +110,24 @@ private fun SearchScreenContent(
 
     val mainScope = rememberCoroutineScope()
 
-    fun openSearchSheet() {
-        mainScope.launch {
+    LaunchedEffect(showingBottomSheet) {
+        if (showingBottomSheet) {
             scaffoldState.bottomSheetState.expand()
-        }
-    }
-
-    fun closeSearchSheet() {
-        mainScope.launch {
+        } else {
             scaffoldState.bottomSheetState.partialExpand()
         }
     }
 
+    fun openSearchSheet() {
+        setBottomSheet(true)
+    }
+
+    fun closeSearchSheet() {
+        setBottomSheet(false)
+    }
+
     fun toggleSearchSheet() {
-        if (scaffoldState.bottomSheetState.currentValue == SheetValue.Expanded) {
-            closeSearchSheet()
-        } else {
-            openSearchSheet()
-        }
+        setBottomSheet(null)
     }
 
     BottomSheetScaffold(

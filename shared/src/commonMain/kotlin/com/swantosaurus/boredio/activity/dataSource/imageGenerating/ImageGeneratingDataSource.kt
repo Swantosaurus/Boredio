@@ -27,7 +27,7 @@ class ImageGeneratingDataSource(
         logger.i { "getImageForActivity" }
         val activityLocalFileName = "${activityKey}.png"
         if (generatedImageFS.exists(activityLocalFileName)) {
-            logger.i("image found in file system")
+            logger.i("image found in file system ${generatedImagePath.resolve(activityLocalFileName)}")
             val data = generatedImageFS.read(path = activityLocalFileName)
             if(data == null) {
                 logger.e("error reading image from file system")

@@ -25,16 +25,31 @@ final class BottomBarNavigationFlow: Base.FlowCoordinatorNoDeepLink {
     
     func setupTabBar() {
         
-        //TODO i cant make it before rootViewController is set duno how this should work
+        // MARK: Daily Feed
         let dailyFeedFlow = DailyFeedFlowCoordinator()
         addChild(dailyFeedFlow)
         let dailyFeedNavController = dailyFeedFlow.start()
         dailyFeedNavController.tabBarItem.title = NSLocalizedString("dayFeedTabBarTitle", comment: "")
         dailyFeedNavController.tabBarItem.image = UIImage(systemName: "newspaper")
         
+        // MARK: Search
+        
+        let searchFlow = SearchScreenFlowCoordinator()
+        addChild(dailyFeedFlow)
+        let searchNC = searchFlow.start()
+        searchNC.tabBarItem.title = NSLocalizedString("searchTabBarTitle", comment: "")
+        searchNC.tabBarItem.image = UIImage(systemName: "rectangle.and.text.magnifyingglass")
+        
+        
+        
+        
+        
+        // MARK: TAB BAR
+        
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [
-            dailyFeedNavController
+            dailyFeedNavController,
+            searchNC
         ]
         rootViewController = tabBarController
         

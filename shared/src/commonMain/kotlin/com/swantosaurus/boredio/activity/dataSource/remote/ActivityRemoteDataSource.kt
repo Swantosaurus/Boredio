@@ -42,7 +42,6 @@ internal class ActivityRemoteDataSource(private val client: HttpClient){
         minAccessibility: Double? = null,
         maxAccessibility: Double? = null,
     ): ActivityRemoteModel {
-
         val minParticipantsX: Int = minParticipants?.takeIf { it >= 0 } ?: 0
         val maxParticipantsX =
             maxParticipants?.takeIf { it >= minParticipantsX } ?: (minParticipantsX + 10)
@@ -53,7 +52,6 @@ internal class ActivityRemoteDataSource(private val client: HttpClient){
 
 
         val request = client.get("$DOMAIN/activity") {
-
             url {
                 if(types.isNotEmpty()) {
                     parameters.appendAll("type", types.map { it.name.lowercase() })
@@ -67,20 +65,6 @@ internal class ActivityRemoteDataSource(private val client: HttpClient){
 
             }
         }
-
-        logger.d {
-            "getRandomByParametersConfigured: " +
-                    "minParticipantsX: $minParticipantsX, " +
-                    "maxParticipantsX: $maxParticipantsX, " +
-                    "minPriceX: $minPriceX, " +
-                    "maxPriceX: $maxPriceX, " +
-                    "minAccessibilityX: $minAccessibilityX, " +
-                    "maxAccessibilityX: $maxAccessibilityX \n" +
-                    "request: ${request.body<String>()}"
-        }
-
-
-
         return request.body()
     }
 
