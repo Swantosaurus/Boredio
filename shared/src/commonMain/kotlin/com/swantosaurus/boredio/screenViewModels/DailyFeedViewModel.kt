@@ -1,4 +1,4 @@
-package com.swantosaurus.boredio.screens
+package com.swantosaurus.boredio.screenViewModels
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences

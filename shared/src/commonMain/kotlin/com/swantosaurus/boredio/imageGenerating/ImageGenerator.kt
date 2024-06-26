@@ -27,7 +27,8 @@ class ImageGenerator(private val client: HttpClient, private val apiKey: OpenAiA
     private val jsonDecoder = Json { ignoreUnknownKeys = true }
     suspend fun generate(prompt: String, model: Model, dimensions: Dimensions, quality: Quality? = null): String? {
         if(apiKey.key.isEmpty()){
-            throw IllegalStateException("api key is empty")
+            logger.e{ "Api Key is missing -- not generating Image" }
+            return null
         }
         try {
             when (model) {

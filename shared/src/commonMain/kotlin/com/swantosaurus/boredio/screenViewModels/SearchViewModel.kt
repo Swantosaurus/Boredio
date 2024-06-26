@@ -1,4 +1,4 @@
-package com.swantosaurus.boredio.screens
+package com.swantosaurus.boredio.screenViewModels
 
 import androidx.datastore.core.DataStore
 import androidx.datastore.preferences.core.Preferences
@@ -117,11 +117,11 @@ val showingBottomSheet = _showingBottomSheet.asStateFlow()
         }
     }
 
-fun setBottomSheet(to: Boolean?) {
-    _showingBottomSheet.update {
-        to ?: !it
+    fun setBottomSheet(to: Boolean?) {
+        _showingBottomSheet.update {
+            to ?: !it
+        }
     }
-}
 
     fun changeParams(
         calledParameters: CallParameters
@@ -175,7 +175,6 @@ fun setBottomSheet(to: Boolean?) {
     }
 
 
-    @OptIn(InternalCoroutinesApi::class)
     fun loadMore() {
         if (searchState.value !is SearchState.Success) {
             logger.w { "loadMore called while not in success state - cancel" }
@@ -296,6 +295,8 @@ fun setBottomSheet(to: Boolean?) {
             if (filteredActivities.size < INIT_LOAD_COUNT * 2.0 / 3) {
                 logger.i { "Too much duplicities stopping loadMore" }
                 _canLoadMore.update { false }
+            } else {
+                _canLoadMore.update { true }
             }
             if (filteredActivities.isEmpty()) {
                 SearchState.Empty

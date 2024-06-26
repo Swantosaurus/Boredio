@@ -55,7 +55,7 @@ android {
 
 dependencies {
     implementation(platform(libs.compose.bom))
-
+    implementation(kotlin("reflect"))
     implementation(libs.coil.compose)
     implementation(libs.compose.animation)
     implementation(libs.compose.navigation)

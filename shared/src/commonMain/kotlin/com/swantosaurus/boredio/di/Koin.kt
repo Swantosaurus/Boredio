@@ -12,6 +12,7 @@ fun initKoin(module: Module, builder: KoinApplication.() -> Any): KoinApplicatio
     val koinApp = startKoin {
         builder()
         modules(platformModule + module + commonModule + commonActivityModule)
+
     }
 
     return koinApp

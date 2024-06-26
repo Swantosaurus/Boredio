@@ -58,8 +58,8 @@ import com.swantosaurus.boredio.android.R
 import com.swantosaurus.boredio.android.ui.Color.AlertRed
 import com.swantosaurus.boredio.android.ui.Color.SuccessGreen
 import com.swantosaurus.boredio.android.ui.util.LoadingScreen
-import com.swantosaurus.boredio.screens.DailyFeedState
-import com.swantosaurus.boredio.screens.DailyFeedViewModel
+import com.swantosaurus.boredio.screenViewModels.DailyFeedState
+import com.swantosaurus.boredio.screenViewModels.DailyFeedViewModel
 import org.koin.androidx.compose.koinViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)

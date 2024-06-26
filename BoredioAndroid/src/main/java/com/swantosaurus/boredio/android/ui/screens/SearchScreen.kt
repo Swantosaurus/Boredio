@@ -52,6 +52,7 @@ import androidx.compose.ui.input.nestedscroll.nestedScroll
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.Dp
 import androidx.compose.ui.unit.dp
 import com.swantosaurus.boredio.activity.model.Activity
 import com.swantosaurus.boredio.activity.model.ActivityType
@@ -60,9 +61,9 @@ import com.swantosaurus.boredio.android.ui.Color.SuccessGreen
 import com.swantosaurus.boredio.android.ui.util.LoadingScreen
 import com.swantosaurus.boredio.android.ui.util.accessibilityString
 import com.swantosaurus.boredio.android.ui.util.priceString
-import com.swantosaurus.boredio.screens.CallParameters
-import com.swantosaurus.boredio.screens.SearchState
-import com.swantosaurus.boredio.screens.SearchViewModel
+import com.swantosaurus.boredio.screenViewModels.CallParameters
+import com.swantosaurus.boredio.screenViewModels.SearchState
+import com.swantosaurus.boredio.screenViewModels.SearchViewModel
 import org.koin.androidx.compose.koinViewModel
 import kotlin.math.roundToInt
 
@@ -158,9 +159,9 @@ private fun SearchScreenContent(
             )
         },
     ) { paddingValues ->
-        Box(
+        Column(
             Modifier
-                .padding(paddingValues)
+                .padding(top = paddingValues.calculateTopPadding())
                 .padding(horizontal = 8.dp)
         ) {
             when (searchState) {
@@ -190,7 +191,8 @@ private fun SearchScreenContent(
                         loadMore = loadMore,
                         reload = reload,
                         save = save,
-                        likeToggle = likeToggle
+                        likeToggle = likeToggle,
+                        bottomSheetHeight = paddingValues.calculateBottomPadding()
                     )
                 }
             }
@@ -243,6 +245,7 @@ private fun SearchScreenBody(
     searchState: SearchState.Success,
     currentParams: CallParameters,
     canLoadMore: Boolean,
+    bottomSheetHeight: Dp,
     search: () -> Unit,
     changeParamsCallParameters: (CallParameters) -> Unit,
     loadMore: () -> Unit,
@@ -268,6 +271,9 @@ private fun SearchScreenBody(
                     }
                 }
             }
+        }
+        item {
+            Box(Modifier.height(bottomSheetHeight).fillMaxWidth())
         }
     }
 }

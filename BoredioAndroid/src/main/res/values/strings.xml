@@ -15,6 +15,7 @@
     <string name="activity">Activity</string>
     <string name="dayFeedTabBarTitle">Day Feed</string>
     <string name="accountTabBarTitle">Account</string>
+    <string name="aboutTabBarTitle">About</string>
     <string name="searchTabBarTitle">Search</string>
     <string name="searchScreenTitle">AcivitySearch</string>
     <string name="searchInitScreenText">Start by selecting filters and hit search to search in all activities. You can\'t find by actiity itself but you can find activities coresponding to given parameters and than save them to your collection.</string>
@@ -39,4 +40,16 @@
     <string name="searchFilterPriceLabel">Price</string>
     <string name="searchFilterAccessbilityLabel">Accessibility</string>
     <string name="searchScreenResetFiltersButton">Reset Filters</string>
+    <string name="aboutScreenTitle">About</string>
+    <string name="aboutScreenLicenseTitle">License</string>
+    <string name="aboutScreenLicenseText">This App is under MIT license - free to reuse and modify</string>
+    <string name="aboutScreenDataSourcesTitle">Data Sources</string>
+    <string name="aboutScreenBoredApiTitle">Bored API</string>
+    <string name="aboutScreenBoredApiText">Bored API is open source API with MIT license also free to contribute</string>
+    <string name="aboutScreenOpenAiDalleTitle">DALL-E</string>
+    <string name="aboutScreenOpenAiDalleText">Bored.io uses DALL-E from Open AI to generate images for activities since the API doesn\'t have any images. To eneble the image generation you have to provide API key since the tool isnt free to use at any scale. Also the daily Feed is limited due to generating limitations.</string>
+    <string name="aboutScreenGoogleAPITitle">Google Could</string>
+    <string name="aboutScreenGoogleAPIText">Google could and google sheets were used to store the strings for multiplatform project</string>
+    <string name="aboutScreenPrivacyPolicyTitle">Privacy Policy</string>
+    <string name="aboutScreenPrivacyPolicyText">Bored.io doens\'t store any user data. All the data are stored in you device and you can clear all the data except currend daily Feed in User sertion</string>
 </resources>
