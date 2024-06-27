@@ -9,6 +9,7 @@
 import Foundation
 import shared
 import SwiftUI
+import Charts
 
 
 class ObservableCompleted: ObservableObject {
@@ -51,6 +52,7 @@ struct UserProfileScreen: View{
             
             await withTaskCancellationHandler(operation: {
                 self.viewModel = vm
+                vm.loadData()
                 
                 for await completed in vm.completed {
                     self.completed.set(completed)
@@ -86,48 +88,74 @@ struct UserProfileScreen: View{
     func completedActiities() -> some View {
         VStack {
             Text(NSLocalizedString("accountScreenCompeltedTitle", comment: ""))
+                .font(.system(size: 24, weight: .bold))
+                .padding(.top, 12)
+                .padding(.bottom, 8)
             HStack {
                 Spacer()
-                //TODO bold
                 Text(NSLocalizedString("accountScreenCompeltedToday", comment: "")  + " ")
-                
+                    .font(.system(size: 16, weight: .bold))
                 Text("\(completed.completed.today)")
+                    .font(.system(size: 16))
                 Spacer()
-                //TODO bold
                 Text(NSLocalizedString("accountScreenCompeltedTotal", comment: "") + " ")
+                    .font(.system(size: 16, weight: .bold))
+
                 Text("\(completed.completed.total)")
                 Spacer()
             }
             
-            //TODO Graph
+            Chart {
+                ForEach(Array(completed.completed.getDays().map{ it in it.intValue}.enumerated()), id: \.offset ){ index, value in
+                    BarMark(x: .value("Date", index), y: .value("cnt", value))
+                }
+            }
+            .chartXScale(domain: 0 ... 7)
+            .chartXAxis(){
+                AxisMarks() { value in
+                    AxisValueLabel("\(value.index)", centered: true)
+                }
+            }
+            .chartYScale(domain: 0 ... 6)
+            .padding(8)
+            .frame(height: 150)
         }
     }
     
     func storage() -> some View {
         VStack {
             Text(NSLocalizedString("accountScreenStorageTitle", comment: ""))
+                .font(.system(size: 24, weight: .bold))
+                .padding(.top, 12)
+                .padding(.bottom, 8)
+            
             HStack {
-                Spacer()
-                //TODO bold
                 Text(NSLocalizedString("accountScreenStorageLoaclActivities", comment: "") + " ")
+                    .font(.system(size: 16, weight: .bold))
                 Text("\(totalDownloadedActivities)")
-                Spacer()
-                VStack {
-                    HStack {
-                        //TODO bold
-                        Text(NSLocalizedString("accountScreenStorageImagesDownloaded", comment: "") + " ")
-                        Text("\(imagesGenerated)")
-                    }
-                    HStack {
-                        //TODO bold
-                        Text(NSLocalizedString("accountScreenStorageImagesDownloadedMemory", comment: "") + " ")
-                        Text("\(totalImageSpace)")
-                    }
-                }
-                Spacer()
+                    .font(.system(size: 16))
             }
-            Button(NSLocalizedString("accountScreenStorageManageButton", comment: "")) {
+            .padding(.bottom, 4)
                 
+            HStack {
+                Text(NSLocalizedString("accountScreenStorageImagesDownloaded", comment: "") + " ")
+                    .font(.system(size: 16, weight: .bold))
+                Text("\(imagesGenerated)")
+                    .font(.system(size: 16))
+            }
+            .padding(.bottom, 4)
+            
+            
+            HStack {
+                Text(NSLocalizedString("accountScreenStorageImagesDownloadedMemory", comment: "") + " ")
+                    .font(.system(size: 16, weight: .bold))
+                Text("\(totalImageSpace)")
+                    .font(.system(size: 16))
+            }
+            .padding(.bottom, 8)
+            
+            Button(NSLocalizedString("accountScreenStorageManageButton", comment: "")) {
+                navDelegate?.navigateStorage()
             }
             .buttonStyle(.bordered)
         }

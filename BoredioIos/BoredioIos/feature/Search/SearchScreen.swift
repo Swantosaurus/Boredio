@@ -149,7 +149,7 @@ struct SearchScreen: View {
     func activityList(activities: [Activity]) -> some View {
         LazyVStack {
             ForEach(activities, id: \.self.key) { activityData in
-                actiityBox(activity: activityData)
+                actitiyBox(activity: activityData)
             }
             if(canLoadMore == true){
                 Button(NSLocalizedString("searchLoadMoreButton", comment: "")) {
@@ -159,7 +159,7 @@ struct SearchScreen: View {
         }
     }
     
-    func actiityBox(activity: Activity) -> some View {
+    func actitiyBox(activity: Activity) -> some View {
         ZStack {
             Color.gray
                 .opacity(0.4)
@@ -197,6 +197,7 @@ struct SearchScreen: View {
                         Image(systemName: "square.and.arrow.down")
                     }
                     .disabled(activity.isStored)
+                    .padding(.horizontal, 8)
                     Button(action: {
                         searchViewModel?.likeActivityToggle(activity: activity)
                     }) {
@@ -209,6 +210,8 @@ struct SearchScreen: View {
                     }
                 }
                 .padding(8)
+                .padding(.horizontal, 8)
+                .padding(.bottom, 8)
             }
         }
         .padding(8)

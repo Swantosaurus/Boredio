@@ -19,5 +19,9 @@ class StorageController: Base.ViewController {
         embedController(vc)
     }
     
-    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        navigationItem.title = NSLocalizedString("storageScreenTitle", comment: "")
+    }
 }

@@ -28,9 +28,9 @@ extension UserProfileFlow: UserProfileScreenNavigationDelegate {
     func navigateStorage() {
         guard let navigationController else { return }
         
-        //TODO
-        //let fc = PlaygroundListFlowCoordinator(districtID: districtID)
-        //addChild(fc)
-        //fc.start(with: navigationController)
+        
+        let fc = StorageFlow()
+        addChild(fc)
+        fc.start(with: navigationController)
     }
 }
