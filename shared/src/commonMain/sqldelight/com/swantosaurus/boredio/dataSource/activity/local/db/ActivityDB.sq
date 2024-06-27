@@ -55,3 +55,6 @@ WHERE ActivityDatabaseModel.path IS NOT NULL;
 
 getAllCompletedActivitiesInTimeRange:
 SELECT * FROM ActivityDatabaseModel WHERE completed = 1 AND completeDate BETWEEN ? AND ?;
+
+deleteActivityByKey:
+DELETE FROM ActivityDatabaseModel WHERE key = ?;

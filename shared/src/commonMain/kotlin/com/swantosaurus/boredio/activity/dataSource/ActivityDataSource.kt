@@ -40,4 +40,8 @@ interface ActivityDataSource {
     suspend fun getCompletedBetweenDates(startDate: Long, endDate: Long) : List<Activity>
 
     suspend fun getAllWithGeneratedImage() : List<Activity>
+
+    suspend fun deleteActivity(activity: Activity)
+
+    suspend fun deleteImage(activity: Activity)
 }

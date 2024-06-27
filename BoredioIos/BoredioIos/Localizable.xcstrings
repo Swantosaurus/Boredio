@@ -649,6 +649,105 @@
                        }
                    }
                }
+           },
+            "userProfile" : {
+                "extractionState" : "manual",
+                "localizations" : {
+                   "en" : {
+                       "stringUnit" : {
+                           "state" : "translated",
+                           "value" : "User Profile"
+                       }
+                   }
+               }
+           },
+            "accountScreenCompeltedTitle" : {
+                "extractionState" : "manual",
+                "localizations" : {
+                   "en" : {
+                       "stringUnit" : {
+                           "state" : "translated",
+                           "value" : "Competed Activities"
+                       }
+                   }
+               }
+           },
+            "accountScreenCompeltedToday" : {
+                "extractionState" : "manual",
+                "localizations" : {
+                   "en" : {
+                       "stringUnit" : {
+                           "state" : "translated",
+                           "value" : "Today:"
+                       }
+                   }
+               }
+           },
+            "accountScreenCompeltedTotal" : {
+                "extractionState" : "manual",
+                "localizations" : {
+                   "en" : {
+                       "stringUnit" : {
+                           "state" : "translated",
+                           "value" : "Total:"
+                       }
+                   }
+               }
+           },
+            "accountScreenStorageTitle" : {
+                "extractionState" : "manual",
+                "localizations" : {
+                   "en" : {
+                       "stringUnit" : {
+                           "state" : "translated",
+                           "value" : "Storage Status"
+                       }
+                   }
+               }
+           },
+            "accountScreenStorageLoaclActivities" : {
+                "extractionState" : "manual",
+                "localizations" : {
+                   "en" : {
+                       "stringUnit" : {
+                           "state" : "translated",
+                           "value" : "Memorized Activities:"
+                       }
+                   }
+               }
+           },
+            "accountScreenStorageImagesDownloaded" : {
+                "extractionState" : "manual",
+                "localizations" : {
+                   "en" : {
+                       "stringUnit" : {
+                           "state" : "translated",
+                           "value" : "Images:"
+                       }
+                   }
+               }
+           },
+            "accountScreenStorageImagesDownloadedMemory" : {
+                "extractionState" : "manual",
+                "localizations" : {
+                   "en" : {
+                       "stringUnit" : {
+                           "state" : "translated",
+                           "value" : "Storage: "
+                       }
+                   }
+               }
+           },
+            "accountScreenStorageManageButton" : {
+                "extractionState" : "manual",
+                "localizations" : {
+                   "en" : {
+                       "stringUnit" : {
+                           "state" : "translated",
+                           "value" : "Manage Storage"
+                       }
+                   }
+               }
            }
     },
     "version" : "1.0"

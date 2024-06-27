@@ -6,6 +6,7 @@ import com.swantosaurus.boredio.screenViewModels.AboutViewModel
 import com.swantosaurus.boredio.screenViewModels.AccountViewModel
 import com.swantosaurus.boredio.screenViewModels.DailyFeedViewModel
 import com.swantosaurus.boredio.screenViewModels.SearchViewModel
+import com.swantosaurus.boredio.screenViewModels.StorageViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -13,6 +14,9 @@ import org.koin.dsl.module
 actual val platformModule = module {
     factory<DatabaseDriverFactory> {
         AndroidDatabaseDriverFactory(context = get())
+    }
+    viewModel {
+        StorageViewModel(activityDataSource = get())
     }
     viewModel {
         AboutViewModel(inAppUrls = get())

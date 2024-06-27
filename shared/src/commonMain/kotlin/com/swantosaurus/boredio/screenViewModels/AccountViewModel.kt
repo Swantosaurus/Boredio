@@ -31,7 +31,7 @@ class AccountViewModel(
 ) : ViewModel() {
 
     private val _completed : MutableStateFlow<CompletedActivities> =
-        MutableStateFlow(CompletedActivities(0, 0, 0, 0, 0, 0, 0, 0, 0))
+        MutableStateFlow(CompletedActivities.Empty)
     val completed = _completed.asStateFlow()
 
     private val _imagesGenerated = MutableStateFlow<Int>(0)
@@ -147,5 +147,9 @@ data class CompletedActivities(
 
     fun getDays(): List<Int> =
         listOf(today, todayM1, todayM2, todayM3, todayM4, todayM5, todayM6, todayM7)
+
+    companion object {
+        val Empty = CompletedActivities(-1, 0, 0, 0, 0, 0, 0, 0, 0)
+    }
 
 }

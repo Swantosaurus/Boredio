@@ -77,6 +77,14 @@ internal class ActivityLocalDataSource(databaseDriverFactory: DatabaseDriverFact
         return all.filter { it.path != null }
     }
 
+    internal fun deleteActivityByKey(key: String) {
+        dbQuery.deleteActivityByKey(key)
+    }
+
+    internal fun deleteActivity(activity: ActivityDatabaseModel) {
+        dbQuery.deleteActivityByKey(activity.key)
+    }
+
     internal fun getAllCompletedActivitiesInTimeRange(start: Long, end: Long) =
         dbQuery.getAllCompletedActivitiesInTimeRange(start, end).executeAsList()
 }

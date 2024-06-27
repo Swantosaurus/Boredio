@@ -59,4 +59,13 @@
     <string name="friday">Friday</string>
     <string name="saturday">Saturday</string>
     <string name="sunday">Sunday</string>
+    <string name="userProfile">User Profile</string>
+    <string name="accountScreenCompeltedTitle">Competed Activities</string>
+    <string name="accountScreenCompeltedToday">Today:</string>
+    <string name="accountScreenCompeltedTotal">Total:</string>
+    <string name="accountScreenStorageTitle">Storage Status</string>
+    <string name="accountScreenStorageLoaclActivities">Memorized Activities:</string>
+    <string name="accountScreenStorageImagesDownloaded">Images:</string>
+    <string name="accountScreenStorageImagesDownloadedMemory">Storage: </string>
+    <string name="accountScreenStorageManageButton">Manage Storage</string>
 </resources>

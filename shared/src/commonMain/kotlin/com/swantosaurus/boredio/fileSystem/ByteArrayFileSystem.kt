@@ -52,4 +52,14 @@ open class ByteArrayFileSystem(private val basePath: Path) {
         }
         return fs.metadata(basePath.resolve(path)).size ?: -1
     }
+
+    suspend fun delete(path: String): Boolean {
+        try {
+            fs.delete(basePath.resolve(path))
+            return true
+        } catch (e: Exception) {
+            logger.e("Error deleting file", e)
+            return false
+        }
+    }
 }

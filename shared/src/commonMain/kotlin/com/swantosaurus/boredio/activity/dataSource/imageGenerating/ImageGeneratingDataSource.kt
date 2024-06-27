@@ -60,4 +60,11 @@ class ImageGeneratingDataSource(
             }
         }
     }
+
+    suspend fun deleteImage(activity: Activity) {
+        val activityLocalFileName = "${activity.key}.png"
+        if(generatedImageFS.exists(activityLocalFileName)) {
+            generatedImageFS.delete(activityLocalFileName)
+        }
+    }
 }

@@ -116,6 +116,33 @@ internal class ActivityDataSourceImpl(
         return activityLocalDataSource.getAllWithGeneratedImage().map { it.toActivity() }
     }
 
+    override suspend fun deleteActivity(activity: Activity) {
+        if(getDbActivityByKey(activity.key)?.isDailyFeed == true){
+            logger.w { "cannot delete daily feed" }
+            return
+        }
+        try {
+            if(activity.path != null) {
+                deleteImage(activity)
+            }
+            activityLocalDataSource.deleteActivityByKey(activity.key)
+        } catch (e: Exception) {
+            logger.e(e) { "Error deleting activity" }
+        }
+    }
+
+    override suspend fun deleteImage(activity: Activity) {
+        if(getDbActivityByKey(activity.key)?.isDailyFeed == true){
+            logger.w { "cannot delete image of daily feed" }
+            return
+        }
+        try {
+            imageGeneratingDataSource.deleteImage(activity)
+        } catch (e: Exception) {
+            logger.e(e) { "Error deleting image" }
+        }
+    }
+
 
     /**
      * tries to get a new random activity from the remote source

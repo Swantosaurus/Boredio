@@ -110,11 +110,6 @@ private fun Section(title: String, content: @Composable () -> Unit) {
             content()
         }
     }
-//    Column(Modifier.padding(8.dp)) {
-//        Text(text = title, style = MaterialTheme.typography.headlineMedium)
-//        Spacer(modifier = Modifier.height(8.dp))
-//        content()
-//    }
 }
 
 @Composable

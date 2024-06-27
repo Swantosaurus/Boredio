@@ -3,26 +3,8 @@ package com.swantosaurus.boredio.android
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Icon
-import androidx.compose.material3.NavigationBar
-import androidx.compose.material3.NavigationBarItem
-import androidx.compose.material3.Scaffold
-import androidx.compose.material3.Text
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.Modifier
-import androidx.compose.ui.platform.LocalLayoutDirection
-import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.res.stringResource
-import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
 import com.swantosaurus.boredio.android.ui.navigation.MainNavigation
-import com.swantosaurus.boredio.android.ui.navigation.NavigationDestinations
-import kotlinx.coroutines.flow.map
 
 
 class MainActivity : ComponentActivity() {
@@ -31,68 +13,14 @@ class MainActivity : ComponentActivity() {
         setContent {
             MyApplicationTheme {
                 val navController = rememberNavController()
-                Scaffold(bottomBar = {
-                    NavBar(navController = navController)
-                }) { padding ->
-                    Box(
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(
-                                bottom = padding.calculateBottomPadding(),
-                                start = padding.calculateLeftPadding(LocalLayoutDirection.current),
-                                end = padding.calculateRightPadding(LocalLayoutDirection.current),
-                            )
-                    ) {
-                        MainNavigation(navController = navController)
-                    }
-                }
+
+                MainNavigation(navController = navController)
             }
         }
     }
 }
 
-@Composable
-private fun NavBar(navController: NavController) {
-    NavigationBar {
-        val currentRoute by navController.currentBackStackEntryFlow.map { it.destination.route }
-            .collectAsState(
-                initial = NavigationDestinations.DAY_FEED.route
-            )
-        NavigationDestinations.entries.forEach { destination ->
-            val isSelected = currentRoute == destination.route
-            NavigationBarItem(icon = {
-                if (isSelected) {
-                    Icon(
-                        painter = painterResource(id = destination.bottomBarIconResSelected),
-                        contentDescription = null
-                    )
-                } else {
-                    Icon(
-                        painter = painterResource(id = destination.bottomBarIconResUnselected),
-                        contentDescription = null
-                    )
-                }
-            },
-                label = {
-                    Text(text = stringResource(id = destination.title))
-                },
-                selected = navController.currentDestination?.route == destination.route,
-                onClick = {
-                    navController.saveState()
-                    navController.navigate(destination.route){
-                        navController.graph.startDestinationRoute?.let { route ->
-                            popUpTo(route) {
-                                saveState = true
-                            }
-                        }
-                        this.restoreState = true
-                        this.launchSingleTop = true
-                    }
-                })
 
-        }
-    }
-}
 
 
 //@Composable

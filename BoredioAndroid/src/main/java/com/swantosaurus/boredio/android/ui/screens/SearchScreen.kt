@@ -273,7 +273,10 @@ private fun SearchScreenBody(
             }
         }
         item {
-            Box(Modifier.height(bottomSheetHeight).fillMaxWidth())
+            Box(
+                Modifier
+                    .height(bottomSheetHeight)
+                    .fillMaxWidth())
         }
     }
 }
@@ -429,7 +432,7 @@ private fun ActivityCard(
                             Text(activity.type.name.mapIndexed { index, c -> if (index == 0) c.uppercase() else c.lowercase() }
                                 .joinToString(separator = ""))
                             Text(activity.participants.toString())
-                            Text(activity.price.toString())
+                            Text(activity.price.priceString())
                             Text(activity.accessibility.accessibilityString())
                         }
                     }
