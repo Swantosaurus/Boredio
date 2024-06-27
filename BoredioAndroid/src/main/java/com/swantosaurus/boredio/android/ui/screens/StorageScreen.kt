@@ -60,7 +60,7 @@ fun StorageScreen(
 
     Scaffold(
         topBar = {
-            TopAppBar(title = { Text("Search") }, navigationIcon = {
+            TopAppBar(title = { Text(stringResource(id = R.string.storageScreenTitle)) }, navigationIcon = {
                 IconButton(onClick = { navController.navigateUp() }) {
                     Icon(imageVector = Icons.AutoMirrored.Default.ArrowBack, contentDescription = null)
                 }
@@ -184,28 +184,27 @@ private fun TabBar(
     NavigationBar {
         NavigationBarItem(
             icon = { Icon(imageVector = Icons.Filled.List, contentDescription = null) },
-            label = { Text("All") },
+            label = { Text(stringResource(id = R.string.storageScreenFilterAll)) },
             selected = selectedFilter == StorageFilter.All,
             onClick = { selectFilter(StorageFilter.All) }
         )
         NavigationBarItem(
             icon = { Icon(imageVector = Icons.Filled.Star, contentDescription = null) },
-            label = { Text("Favorite") },
+            label = { Text(stringResource(id = R.string.storageScreenFilterFavorite)) },
             selected = selectedFilter == StorageFilter.Favorite,
             onClick = { selectFilter(StorageFilter.Favorite) }
         )
         NavigationBarItem(
             icon = { Icon(imageVector = Icons.Outlined.DateRange, contentDescription = null) },
-            label = { Text("With Image") },
+            label = { Text(stringResource(id = R.string.storageScreenFilterImage)) },
             selected = selectedFilter == StorageFilter.WithImage,
             onClick = { selectFilter(StorageFilter.WithImage) }
         )
         NavigationBarItem(
             icon = { Icon(imageVector = Icons.Filled.Warning, contentDescription = null) },
-            label = { Text("Ignored") },
+            label = { Text(stringResource(id = R.string.storageScreenFilterIgnored)) },
             selected = selectedFilter == StorageFilter.Ignored,
             onClick = { selectFilter(StorageFilter.Ignored) }
         )
-
     }
 }

@@ -68,4 +68,9 @@
     <string name="accountScreenStorageImagesDownloaded">Images:</string>
     <string name="accountScreenStorageImagesDownloadedMemory">Storage: </string>
     <string name="accountScreenStorageManageButton">Manage Storage</string>
+    <string name="storageScreenTitle">Storage Management</string>
+    <string name="storageScreenFilterAll">All</string>
+    <string name="storageScreenFilterFavorite">Favorite</string>
+    <string name="storageScreenFilterImage">With Image</string>
+    <string name="storageScreenFilterIgnored">Ignored</string>
 </resources>

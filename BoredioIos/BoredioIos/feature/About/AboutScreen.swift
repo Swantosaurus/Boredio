@@ -43,7 +43,11 @@ struct AboutScreen: View {
         }
         .task {
             let vm = KotlinDependencies.shared.getAboutViewModel()
-            self.viewModel = vm
+            await withTaskCancellationHandler(operation: {
+                self.viewModel = vm
+            } ) {
+                viewModel?.clear()
+            }
         }
     }
     

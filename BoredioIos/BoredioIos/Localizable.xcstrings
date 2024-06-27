@@ -748,6 +748,61 @@
                        }
                    }
                }
+           },
+            "storageScreenTitle" : {
+                "extractionState" : "manual",
+                "localizations" : {
+                   "en" : {
+                       "stringUnit" : {
+                           "state" : "translated",
+                           "value" : "Storage Management"
+                       }
+                   }
+               }
+           },
+            "storageScreenFilterAll" : {
+                "extractionState" : "manual",
+                "localizations" : {
+                   "en" : {
+                       "stringUnit" : {
+                           "state" : "translated",
+                           "value" : "All"
+                       }
+                   }
+               }
+           },
+            "storageScreenFilterFavorite" : {
+                "extractionState" : "manual",
+                "localizations" : {
+                   "en" : {
+                       "stringUnit" : {
+                           "state" : "translated",
+                           "value" : "Favorite"
+                       }
+                   }
+               }
+           },
+            "storageScreenFilterImage" : {
+                "extractionState" : "manual",
+                "localizations" : {
+                   "en" : {
+                       "stringUnit" : {
+                           "state" : "translated",
+                           "value" : "With Image"
+                       }
+                   }
+               }
+           },
+            "storageScreenFilterIgnored" : {
+                "extractionState" : "manual",
+                "localizations" : {
+                   "en" : {
+                       "stringUnit" : {
+                           "state" : "translated",
+                           "value" : "Ignored"
+                       }
+                   }
+               }
            }
     },
     "version" : "1.0"

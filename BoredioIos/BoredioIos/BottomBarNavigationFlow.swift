@@ -32,6 +32,14 @@ final class BottomBarNavigationFlow: Base.FlowCoordinatorNoDeepLink {
         dailyFeedNavController.tabBarItem.title = NSLocalizedString("dayFeedTabBarTitle", comment: "")
         dailyFeedNavController.tabBarItem.image = UIImage(systemName: "newspaper")
         
+        // MARK: User Profile
+        
+        let userProfileFlow = UserProfileFlow()
+        addChild(userProfileFlow)
+        let userProfileController = userProfileFlow.start()
+        userProfileController.tabBarItem.title = NSLocalizedString("aboutTabBarTitle", comment: "")
+        userProfileController.tabBarItem.image = UIImage(systemName: "person.crop.circle")
+        
         // MARK: Search
         
         let searchFlow = SearchScreenFlowCoordinator()
@@ -55,6 +63,7 @@ final class BottomBarNavigationFlow: Base.FlowCoordinatorNoDeepLink {
         let tabBarController = UITabBarController()
         tabBarController.viewControllers = [
             dailyFeedNavController,
+            userProfileController,
             searchNC,
             aboutNC
         ]

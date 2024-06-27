@@ -20,6 +20,12 @@
 		6707B7552C2C5FFE0008751E /* AboutScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6707B7542C2C5FFE0008751E /* AboutScreen.swift */; };
 		6707B7572C2C60500008751E /* AboutViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6707B7562C2C60500008751E /* AboutViewController.swift */; };
 		6707B7592C2C61540008751E /* AboutFlowCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6707B7582C2C61540008751E /* AboutFlowCoordinator.swift */; };
+		6707B75B2C2D4EB00008751E /* UserProfileScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6707B75A2C2D4EB00008751E /* UserProfileScreen.swift */; };
+		6707B75D2C2D55320008751E /* UserProfileController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6707B75C2C2D55320008751E /* UserProfileController.swift */; };
+		6707B75F2C2D55B80008751E /* UserProfileFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6707B75E2C2D55B80008751E /* UserProfileFlow.swift */; };
+		6707B7622C2D5D070008751E /* StoregeScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6707B7612C2D5D070008751E /* StoregeScreen.swift */; };
+		6707B7642C2D5D350008751E /* StorageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6707B7632C2D5D350008751E /* StorageController.swift */; };
+		6707B7662C2D5D980008751E /* StorageFlow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6707B7652C2D5D980008751E /* StorageFlow.swift */; };
 		675189C92C1B78C800C5670C /* Koin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675189C82C1B78C800C5670C /* Koin.swift */; };
 		675189CB2C1B7DD400C5670C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675189CA2C1B7DD400C5670C /* AppDelegate.swift */; };
 		675189CD2C1BB6BB00C5670C /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 675189CC2C1BB6BB00C5670C /* Localizable.xcstrings */; };
@@ -62,6 +68,12 @@
 		6707B7542C2C5FFE0008751E /* AboutScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutScreen.swift; sourceTree = "<group>"; };
 		6707B7562C2C60500008751E /* AboutViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutViewController.swift; sourceTree = "<group>"; };
 		6707B7582C2C61540008751E /* AboutFlowCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AboutFlowCoordinator.swift; sourceTree = "<group>"; };
+		6707B75A2C2D4EB00008751E /* UserProfileScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileScreen.swift; sourceTree = "<group>"; };
+		6707B75C2C2D55320008751E /* UserProfileController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileController.swift; sourceTree = "<group>"; };
+		6707B75E2C2D55B80008751E /* UserProfileFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProfileFlow.swift; sourceTree = "<group>"; };
+		6707B7612C2D5D070008751E /* StoregeScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoregeScreen.swift; sourceTree = "<group>"; };
+		6707B7632C2D5D350008751E /* StorageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageController.swift; sourceTree = "<group>"; };
+		6707B7652C2D5D980008751E /* StorageFlow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorageFlow.swift; sourceTree = "<group>"; };
 		675189C82C1B78C800C5670C /* Koin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Koin.swift; sourceTree = "<group>"; };
 		675189CA2C1B7DD400C5670C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		675189CC2C1BB6BB00C5670C /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
@@ -105,6 +117,7 @@
 		6707B7522C2C5FC10008751E /* feature */ = {
 			isa = PBXGroup;
 			children = (
+				6707B7602C2D5CC90008751E /* Storage */,
 				6707B7532C2C5FE60008751E /* About */,
 				67FBBDA12C29CE0400CB0ED7 /* Account */,
 				67FBBDA22C29CE1300CB0ED7 /* Search */,
@@ -121,6 +134,16 @@
 				6707B7582C2C61540008751E /* AboutFlowCoordinator.swift */,
 			);
 			path = About;
+			sourceTree = "<group>";
+		};
+		6707B7602C2D5CC90008751E /* Storage */ = {
+			isa = PBXGroup;
+			children = (
+				6707B7612C2D5D070008751E /* StoregeScreen.swift */,
+				6707B7632C2D5D350008751E /* StorageController.swift */,
+				6707B7652C2D5D980008751E /* StorageFlow.swift */,
+			);
+			path = Storage;
 			sourceTree = "<group>";
 		};
 		67FBBD882C299F0800CB0ED7 /* DailyFeed */ = {
@@ -145,6 +168,9 @@
 		67FBBDA12C29CE0400CB0ED7 /* Account */ = {
 			isa = PBXGroup;
 			children = (
+				6707B75A2C2D4EB00008751E /* UserProfileScreen.swift */,
+				6707B75C2C2D55320008751E /* UserProfileController.swift */,
+				6707B75E2C2D55B80008751E /* UserProfileFlow.swift */,
 			);
 			path = Account;
 			sourceTree = "<group>";
@@ -319,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6707B75F2C2D55B80008751E /* UserProfileFlow.swift in Sources */,
 				67FBBD972C29A99800CB0ED7 /* DailyFeedFlowCoordinator.swift in Sources */,
 				67FBBD8C2C29A56800CB0ED7 /* DailyFeedViewController.swift in Sources */,
 				6707B7452C2B2AAE0008751E /* SearchScreenFlowCoordinator.swift in Sources */,
@@ -329,6 +356,11 @@
 				6707B7432C2B215A0008751E /* SearchScreenViewController.swift in Sources */,
 				67FBBDA02C29CA3D00CB0ED7 /* OpenAiApiKey.swift in Sources */,
 				6707B7592C2C61540008751E /* AboutFlowCoordinator.swift in Sources */,
+				6707B7642C2D5D350008751E /* StorageController.swift in Sources */,
+				6707B75B2C2D4EB00008751E /* UserProfileScreen.swift in Sources */,
+				6707B7662C2D5D980008751E /* StorageFlow.swift in Sources */,
+				6707B7622C2D5D070008751E /* StoregeScreen.swift in Sources */,
+				6707B75D2C2D55320008751E /* UserProfileController.swift in Sources */,
 				67FBBDA72C29D3FD00CB0ED7 /* ErrorView.swift in Sources */,
 				6707B7472C2B38110008751E /* PriceMapping.swift in Sources */,
 				675189CB2C1B7DD400C5670C /* AppDelegate.swift in Sources */,
