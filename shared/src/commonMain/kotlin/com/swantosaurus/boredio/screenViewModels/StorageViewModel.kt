@@ -54,7 +54,9 @@ class StorageViewModel(
     }
 
     fun selectFilter(filter: StorageFilter) {
-        _selectedFilter.value = filter
+        _selectedFilter.update {
+            filter
+        }
     }
 
 

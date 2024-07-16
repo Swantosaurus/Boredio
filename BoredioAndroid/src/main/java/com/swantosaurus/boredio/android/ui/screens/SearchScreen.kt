@@ -1,5 +1,7 @@
 package com.swantosaurus.boredio.android.ui.screens
 
+import android.util.Log
+import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Arrangement
@@ -213,7 +215,7 @@ private fun InitScreen(openSearch: () -> Unit) {
             textAlign = TextAlign.Center
         )
         Spacer(modifier = Modifier.padding(8.dp))
-        TextButton(onClick = openSearch) {
+        TextButton(onClick = openSearch, colors = ButtonDefaults.textButtonColors(containerColor = MaterialTheme.colorScheme.primaryContainer)) {
             Text(text = stringResource(id = R.string.searchInitButton))
         }
     }
@@ -235,7 +237,10 @@ private fun ErrorScreen(reload: () -> Unit) {
 
 @Composable
 private fun EmptyScreen() {
-    Box(Modifier.fillMaxSize(), contentAlignment = Alignment.Center) {
+    Box(
+        Modifier
+            .fillMaxSize()
+            .background(Color.Yellow), contentAlignment = Alignment.Center) {
         Text(text = stringResource(id = R.string.searchEmptyScreenText))
     }
 }
@@ -253,6 +258,10 @@ private fun SearchScreenBody(
     save: (Activity) -> Unit,
     likeToggle: (Activity) -> Unit
 ) {
+    if(searchState.activities.isEmpty()) {
+        Log.d("SearchScreenBody", "Empty activities")
+        Text(text = "IDK")
+    }
     LazyColumn(verticalArrangement = Arrangement.spacedBy(8.dp)) {
         items(searchState.activities, key = { it.key }) {
             ActivityCard(it, save, likeToggle)

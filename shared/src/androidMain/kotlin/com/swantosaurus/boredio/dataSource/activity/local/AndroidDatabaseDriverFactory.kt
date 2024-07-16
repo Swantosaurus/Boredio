@@ -3,7 +3,7 @@ package com.swantosaurus.boredio.dataSource.activity.local
 import android.content.Context
 import app.cash.sqldelight.db.SqlDriver
 import app.cash.sqldelight.driver.android.AndroidSqliteDriver
-import com.swantosaurus.boredio.activity.dataSource.local.DatabaseDriverFactory
+import com.swantosaurus.boredio.di.DatabaseDriverFactory
 import com.swantosaurus.boredio.dataSource.activity.local.db.ActivityDB
 
 class AndroidDatabaseDriverFactory(private val context: Context) : DatabaseDriverFactory {

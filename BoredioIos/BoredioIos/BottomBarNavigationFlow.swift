@@ -13,17 +13,20 @@ import UIKit
 final class BottomBarNavigationFlow: Base.FlowCoordinatorNoDeepLink {
     private weak var tabBar: UITabBarController!
     private weak var window: UIWindow!
+    weak var delegate: UserProfileScreenNavigationDelegate?
     
-    override func start(in window: UIWindow) {
-        self.window = window
-        
-        super.start(in: window)
-        
-        
-        setupTabBar()
+    init(delegate: UserProfileScreenNavigationDelegate) {
+        super.init()
+        self.delegate = delegate
     }
     
-    func setupTabBar() {
+    override func start() -> UIViewController {
+        super.start()
+    
+        return setupTabBar()
+    }
+    
+    func setupTabBar() -> UIViewController {
         
         // MARK: Daily Feed
         let dailyFeedFlow = DailyFeedFlowCoordinator()
@@ -34,7 +37,7 @@ final class BottomBarNavigationFlow: Base.FlowCoordinatorNoDeepLink {
         
         // MARK: User Profile
         
-        let userProfileFlow = UserProfileFlow()
+        let userProfileFlow = UserProfileFlow(delegate: delegate)
         addChild(userProfileFlow)
         let userProfileController = userProfileFlow.start()
         userProfileController.tabBarItem.title = NSLocalizedString("aboutTabBarTitle", comment: "")
@@ -67,11 +70,10 @@ final class BottomBarNavigationFlow: Base.FlowCoordinatorNoDeepLink {
             searchNC,
             aboutNC
         ]
+        
         rootViewController = tabBarController
         
-        window?.rootViewController = tabBarController
-        window?.makeKeyAndVisible()
-        
         self.tabBar = tabBarController
+        return tabBarController
     }
 }

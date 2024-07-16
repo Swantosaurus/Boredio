@@ -1,7 +1,6 @@
 package com.swantosaurus.boredio.di
 
 import com.swantosaurus.boredio.AppInfo
-import com.swantosaurus.boredio.activity.dataSource.local.DatabaseDriverFactory
 import com.swantosaurus.boredio.dataSource.activity.local.IOSDatabaseDriverFactory
 import com.swantosaurus.boredio.imageGenerating.ImageGenerator
 import com.swantosaurus.boredio.screenViewModels.AboutViewModel
@@ -18,7 +17,7 @@ actual val platformModule = module {
         IOSDatabaseDriverFactory()
     }
     single { StorageViewModel(activityDataSource = get()) }
-    single { AccountViewModel(dataSource = get(), generatedImageFileSystem = get()) }
+    single { AccountViewModel(dataSource = get(), generatedImageFileSystem = get(), apiKey = get()) }
     single { SearchViewModel(activityDataSource = get(), get()) }
     single { DailyFeedViewModel(activityDataSource = get(), preferences = get()) }
     single { AboutViewModel(inAppUrls = get()) }

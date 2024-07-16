@@ -57,7 +57,6 @@ class SearchViewModel(
     private val activityDataSource: ActivityDataSource,
     private val preferences: DataStore<Preferences>
 ) : ViewModel() {
-
     val currentParams = preferences.data.map { pref ->
         val types: List<ActivityType> =
             pref[typesKey]?.let { Json.decodeFromString(it) } ?: emptyList()
@@ -81,18 +80,14 @@ class SearchViewModel(
     }.stateIn(scope = backgroundSingleThreadScope, started = SharingStarted.WhileSubscribed(), initialValue = CallParameters.DEFAULT)
 
 
-
-
-
     private val _searchState = MutableStateFlow<SearchState>(SearchState.Init)
     val searchState = _searchState.asStateFlow()
 
-private val _canLoadMore = MutableStateFlow<Boolean>(true)
-val canLoadMore = _canLoadMore.asStateFlow()
+    private val _canLoadMore = MutableStateFlow<Boolean>(true)
+    val canLoadMore = _canLoadMore.asStateFlow()
 
-private val _showingBottomSheet = MutableStateFlow<Boolean>(false)
-val showingBottomSheet = _showingBottomSheet.asStateFlow()
-
+    private val _showingBottomSheet = MutableStateFlow<Boolean>(false)
+    val showingBottomSheet = _showingBottomSheet.asStateFlow()
 
     fun reload() {
         if (searchState.value !is SearchState.Error) {

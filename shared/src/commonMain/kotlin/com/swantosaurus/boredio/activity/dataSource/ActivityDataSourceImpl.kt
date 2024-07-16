@@ -31,7 +31,6 @@ internal class ActivityDataSourceImpl(
     private val activityLocalDataSource: ActivityLocalDataSource,
     private val imageGeneratingDataSource: ImageGeneratingDataSource
 ) : ActivityDataSource {
-
     override suspend fun getDailyFeed(onImageReady: (Activity) -> Unit): List<Activity>? {
         var dailyFeedDb = activityLocalDataSource.getDailyFeed().map { it.toActivity() }
         val today = Clock.System.now().toLocalDateTime(TimeZone.currentSystemDefault()).date

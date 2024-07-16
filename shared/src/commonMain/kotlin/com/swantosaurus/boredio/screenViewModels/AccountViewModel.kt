@@ -4,12 +4,16 @@ import co.touchlab.kermit.Logger
 import com.swantosaurus.boredio.ViewModel
 import com.swantosaurus.boredio.activity.dataSource.ActivityDataSource
 import com.swantosaurus.boredio.activity.dataSource.imageGenerating.local.GeneratedImageFileSystem
+import com.swantosaurus.boredio.di.UserSettingsApiKey
 import com.swantosaurus.boredio.util.format
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.DelicateCoroutinesApi
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.ExperimentalCoroutinesApi
 import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import kotlinx.coroutines.newSingleThreadContext
@@ -27,7 +31,8 @@ private val logger = Logger.withTag("AccountViewModel")
 
 class AccountViewModel(
     private val dataSource: ActivityDataSource,
-    private val generatedImageFileSystem: GeneratedImageFileSystem
+    private val generatedImageFileSystem: GeneratedImageFileSystem,
+    private val apiKey: UserSettingsApiKey
 ) : ViewModel() {
 
     private val _completed : MutableStateFlow<CompletedActivities> =
@@ -42,6 +47,14 @@ class AccountViewModel(
 
     private val _totalDownloadedActivities = MutableStateFlow<Int>(0)
     val totalDownloadedActivities = _totalDownloadedActivities.asStateFlow()
+
+    val openAiApiKey = apiKey.realTimeKey.stateIn(CoroutineScope(Dispatchers.Main), SharingStarted.Eagerly, "Loading ...")
+
+    fun setApiKey(to: String) {
+        backgroundSingleThreadScope.launch {
+            apiKey.setKey(to)
+        }
+    }
 
     fun loadData() {
         loadCompleted()

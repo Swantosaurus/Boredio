@@ -1,4 +1,4 @@
-package com.swantosaurus.boredio.activity.dataSource.local
+package com.swantosaurus.boredio.di
 
 import app.cash.sqldelight.db.SqlDriver
 

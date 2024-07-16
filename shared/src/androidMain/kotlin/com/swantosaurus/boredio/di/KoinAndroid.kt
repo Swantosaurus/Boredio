@@ -1,6 +1,5 @@
 package com.swantosaurus.boredio.di
 
-import com.swantosaurus.boredio.activity.dataSource.local.DatabaseDriverFactory
 import com.swantosaurus.boredio.dataSource.activity.local.AndroidDatabaseDriverFactory
 import com.swantosaurus.boredio.screenViewModels.AboutViewModel
 import com.swantosaurus.boredio.screenViewModels.AccountViewModel
@@ -22,7 +21,7 @@ actual val platformModule = module {
         AboutViewModel(inAppUrls = get())
     }
     viewModel {
-        AccountViewModel(dataSource = get(), generatedImageFileSystem = get())
+        AccountViewModel(dataSource = get(), generatedImageFileSystem = get(), apiKey = get())
     }
     viewModel {
         SearchViewModel(activityDataSource = get(), preferences = get())

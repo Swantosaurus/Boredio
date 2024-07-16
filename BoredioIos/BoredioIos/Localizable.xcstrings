@@ -157,6 +157,39 @@
         }
       }
     },
+    "accountScreenApiKeyPlaceholder" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Copy your Open Ai api key there "
+          }
+        }
+      }
+    },
+    "accountScreenApiKeyText" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "If you want images for your activitis add Open AI api key (we use Dalle 2 model with 512x512 resolution) for more information read this link"
+          }
+        }
+      }
+    },
+    "accountScreenApiKeyTitle" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Api key for AI"
+          }
+        }
+      }
+    },
     "accountScreenCompeltedTitle" : {
       "extractionState" : "manual",
       "localizations" : {
@@ -263,6 +296,17 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "Activity"
+          }
+        }
+      }
+    },
+    "buttonSaveApiKey" : {
+      "extractionState" : "manual",
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Save Key "
           }
         }
       }
@@ -789,9 +833,6 @@
           }
         }
       }
-    },
-    "TODO" : {
-
     },
     "tuesday" : {
       "extractionState" : "manual",

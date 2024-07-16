@@ -156,7 +156,7 @@ private fun ActivityCard(
                     )
                 }
                 IconButton(onClick = { deleteImage(activity) },
-                    enabled = activity.path != null,
+                    enabled = !(activity.path == null || activity.isDailyFeed),
                     colors = IconButtonDefaults.iconButtonColors(contentColor = Color.Red)
                 ) {
                     Icon(
@@ -164,7 +164,9 @@ private fun ActivityCard(
                         contentDescription = null,
                     )
                 }
-                IconButton(onClick = { delete(activity) }) {
+                IconButton(
+                    onClick = { delete(activity) }, enabled = !activity.isDailyFeed
+                ) {
                     Icon(
                         imageVector = Icons.Default.Delete,
                         contentDescription = null,

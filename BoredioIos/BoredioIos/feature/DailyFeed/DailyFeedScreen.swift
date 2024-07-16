@@ -159,7 +159,8 @@ struct DailyFeedScreen: View {
                 Button(action: {dailyFeedViewModel?.ignore(activity: activityData)}, label: {
                     Image(systemName: "trash.fill")
                         .resizable()
-                        .frame(width: 30, height: 30)
+                        .frame(width: 24, height: 24)
+                        .padding(.horizontal, 8)
                         .foregroundColor(overlayActionsColor)
                 })
                 Button(action: {dailyFeedViewModel?.reroll(activity: activityData, onNoRerolls: {
@@ -168,7 +169,7 @@ struct DailyFeedScreen: View {
                 }, label: {
                     Image(systemName: "arrow.counterclockwise")
                         .resizable()
-                        .frame(width: 30, height: 30)
+                        .frame(width: 24, height: 24)
                         .foregroundColor(overlayActionsColor)
                 })
                 .alert(isPresented: $noRerollsAlertDialog, content: {
@@ -178,11 +179,13 @@ struct DailyFeedScreen: View {
                 Button(action: {dailyFeedViewModel?.complete(activity: activityData,  rating: 0)}, label: {
                     Image(systemName: "checkmark.square.fill")
                         .resizable()
-                        .frame(width: 30, height: 30)
+                        .frame(width: 24, height: 24)
+                        .padding(.horizontal, 8)
                         .foregroundColor(overlayActionsColor)
                 })
             }
             .padding(8)
+            .padding(.bottom, 8)
         }
     }
 }

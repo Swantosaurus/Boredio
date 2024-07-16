@@ -11,26 +11,22 @@ import ACKategories
 import UIKit
 
 class UserProfileFlow: Base.FlowCoordinatorNoDeepLink {
+    weak var delegate: UserProfileScreenNavigationDelegate?
+
+    init(delegate: UserProfileScreenNavigationDelegate?) {
+        super.init()
+        self.delegate = delegate
+    }
+    
     override func start() -> UIViewController {
         super.start()
         
-        let vc = UserProfileController(delegate: self)
+        let vc = UserProfileController(delegate: delegate)
         let navVC = UINavigationController(rootViewController: vc)
         
         rootViewController = vc
         navigationController = navVC
         
         return navVC
-    }
-}
-
-extension UserProfileFlow: UserProfileScreenNavigationDelegate {
-    func navigateStorage() {
-        guard let navigationController else { return }
-        
-        
-        let fc = StorageFlow()
-        addChild(fc)
-        fc.start(with: navigationController)
     }
 }

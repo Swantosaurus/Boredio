@@ -51,13 +51,31 @@ struct StoregeScreen: View {
             }
             .task {
                 let vm = KotlinDependencies.shared.getStorageViewModel()
-
+                
                 for await activities in vm.activities {
+                    print("activities updated")
                     self.observedActivities.set(activities)
                 }
             }
     }
     
+    @State private var selection = 0
+    
+    var handler: Binding<Int> { Binding(
+        get: { self.selection },
+        set: {
+            print("setting to \($0)")
+            switch $0 {
+            case 0: viewModel?.selectFilter(filter: StorageFilterAll())
+            case 1: viewModel?.selectFilter(filter: StorageFilterFavorite())
+            case 2: viewModel?.selectFilter(filter: StorageFilterWithImage())
+            case 3: viewModel?.selectFilter(filter: StorageFilterIgnored())
+            default:
+                print("error kill me pls")
+            }
+            self.selection = $0
+        }
+    )}
     
     var content: some View {
         VStack {
@@ -65,9 +83,55 @@ struct StoregeScreen: View {
             case is StorageActivitiesLoading:
                 ProgressView()
             case let success as StorageActivitiesSuccess:
-                activityList(activities: success.activities)
-                Spacer()
-                bottomRow(selectedFilter: self.observedFilter.selectedFilter)
+                TabView(selection: handler) {
+                    activityList(activities: success.activities)
+                        .tabItem{
+                            VStack {
+                                Spacer()
+                                Image(systemName: "list.clipboard")
+                                Spacer()
+                                Text(NSLocalizedString("storageScreenFilterAll", comment: ""))
+                                    .font(.system(size: 12))
+                            }
+                            .frame(height: 50)
+                        }
+                        .tag(0)
+                    activityList(activities: success.activities)
+                        .tabItem{
+                            VStack {
+                                Spacer()
+                                Image(systemName: "star.fill")
+                                Spacer()
+                                Text(NSLocalizedString("storageScreenFilterFavorite", comment: ""))
+                                    .font(.system(size: 12))
+                            }
+                        }
+                        .tag(1)
+                    activityList(activities: success.activities)
+                        .tabItem{
+                            VStack {
+                                Spacer()
+                                Image(systemName: "photo")
+                                Spacer()
+                                Text(NSLocalizedString("storageScreenFilterImage", comment: ""))
+                                    .font(.system(size: 12))
+                            }
+                        }
+                        .tag(2)
+                    activityList(activities: success.activities)
+                        .tabItem{
+                            VStack {
+                                Spacer()
+                                Image(systemName: "exclamationmark.square.fill")
+                                Spacer()
+                                Text(NSLocalizedString("storageScreenFilterIgnored", comment: ""))
+                                    .font(.system(size: 12))
+                            }
+                        }
+                        .tag(3)
+                }
+                //Spacer()
+                //bottomRow(selectedFilter: self.observedFilter.selectedFilter)
             default:
                 ErrorView(message: "Unknown screen state of \(self.observedActivities.activities)")
             }
@@ -160,11 +224,6 @@ struct StoregeScreen: View {
             }
         }
         .padding(8)
-    }
-    
-    
-    func bottomRow(selectedFilter: StorageFilter) -> some View {
-        Text("TODO")
     }
 }
 

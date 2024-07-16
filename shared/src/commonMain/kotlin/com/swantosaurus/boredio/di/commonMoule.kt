@@ -17,6 +17,9 @@ val commonModule = module {
         createDataStore()
     }
     single {
+        UserSettingsApiKey(preferences = get())
+    }
+    single {
         InAppUrls(
             boredApi = "https://bored.api.lewagon.com/",
             dalleApi = "https://platform.openai.com/docs/guides/images/example-dall-e-3-generations",

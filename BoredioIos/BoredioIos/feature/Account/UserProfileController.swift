@@ -14,7 +14,7 @@ import SwiftUI
 class UserProfileController: Base.ViewController {
     weak var delegate: UserProfileScreenNavigationDelegate?
 
-    init(delegate: UserProfileScreenNavigationDelegate) {
+    init(delegate: UserProfileScreenNavigationDelegate?) {
         super.init()
         self.delegate = delegate
     }
