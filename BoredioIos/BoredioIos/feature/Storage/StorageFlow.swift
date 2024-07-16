@@ -12,12 +12,19 @@ import UIKit
 
 
 class StorageFlow: Base.FlowCoordinatorNoDeepLink {
+    weak var delegate: StorageControllerDelegate?
+    
+    init(delegate: StorageControllerDelegate) {
+        super.init()
+        self.delegate = delegate
+    }
+    
     
     override func start(with navigationController: UINavigationController) {
         //
         super.start(with: navigationController)
         
-        let vc = StorageController() // WHAT AM I DOIN THERE????
+        let vc = StorageController(delegate: self.delegate) // WHAT AM I DOIN THERE????
         rootViewController = vc
 
         navigationController.pushViewController(vc, animated: true)
@@ -26,7 +33,7 @@ class StorageFlow: Base.FlowCoordinatorNoDeepLink {
     override func start() -> UIViewController {
         super.start()
         
-        let vc = StorageController()
+        let vc = StorageController(delegate: self.delegate)
         rootViewController = vc
         
         return vc

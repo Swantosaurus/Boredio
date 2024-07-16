@@ -50,7 +50,7 @@ extension MainFlow: UserProfileScreenNavigationDelegate {
         guard let mainNavController else { return }
         mainNavController.popToViewController(tabBarViewController, animated: false)
         
-        let fc = StorageFlow()
+        let fc = StorageFlow(delegate: self)
         addChild(fc)
         let sVC = fc.start()
         self.storageViewController = sVC
@@ -59,5 +59,11 @@ extension MainFlow: UserProfileScreenNavigationDelegate {
         sVC.title = "test"
         
         mainNavController.pushViewController(sVC, animated: true)
+    }
+}
+
+extension MainFlow: StorageControllerDelegate {
+    func navigateUp() {
+        mainNavController.navigationBar.isHidden = true
     }
 }

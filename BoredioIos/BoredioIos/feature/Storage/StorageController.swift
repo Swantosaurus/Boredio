@@ -10,7 +10,17 @@ import Foundation
 import ACKategories
 import SwiftUI
 
+protocol StorageControllerDelegate: NSObject {
+    func navigateUp()
+}
+
 class StorageController: Base.ViewController {
+    weak var delegate: StorageControllerDelegate?
+    
+    init(delegate: StorageControllerDelegate?) {
+        super.init()
+        self.delegate = delegate
+    }
     
     override func loadView() {
         super.loadView()
@@ -23,5 +33,13 @@ class StorageController: Base.ViewController {
         super.viewDidLoad()
         
         navigationItem.title = NSLocalizedString("storageScreenTitle", comment: "")
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        if self.isMovingFromParent {
+            delegate!.navigateUp()
+        }
     }
 }
