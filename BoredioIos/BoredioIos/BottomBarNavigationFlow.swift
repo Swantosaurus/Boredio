@@ -40,7 +40,7 @@ final class BottomBarNavigationFlow: Base.FlowCoordinatorNoDeepLink {
         let userProfileFlow = UserProfileFlow(delegate: delegate)
         addChild(userProfileFlow)
         let userProfileController = userProfileFlow.start()
-        userProfileController.tabBarItem.title = NSLocalizedString("aboutTabBarTitle", comment: "")
+        userProfileController.tabBarItem.title = NSLocalizedString("accountTabBarTitle", comment: "")
         userProfileController.tabBarItem.image = UIImage(systemName: "person.crop.circle")
         
         // MARK: Search
