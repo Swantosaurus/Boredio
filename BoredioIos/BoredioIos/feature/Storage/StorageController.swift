@@ -9,6 +9,7 @@
 import Foundation
 import ACKategories
 import SwiftUI
+import shared
 
 protocol StorageControllerDelegate: NSObject {
     func navigateUp()
@@ -37,6 +38,8 @@ class StorageController: Base.ViewController {
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
+        let vm =  KotlinDependencies.shared.getStorageViewModel()
+        vm.selectFilter(filter: StorageFilterAll())
         
         if self.isMovingFromParent {
             delegate!.navigateUp()

@@ -14,7 +14,7 @@ final class MainFlow: Base.FlowCoordinatorNoDeepLink {
     private weak var window: UIWindow!
     private weak var mainNavController: UINavigationController!
     private weak var tabBarViewController: UIViewController!
-    private weak var storageViewController: UIViewController?
+    private weak var storageFlow: StorageFlow?
 
     override func start(in window: UIWindow) {
         self.window = window
@@ -51,12 +51,11 @@ extension MainFlow: UserProfileScreenNavigationDelegate {
         mainNavController.popToViewController(tabBarViewController, animated: false)
         
         let fc = StorageFlow(delegate: self)
+        self.storageFlow = fc
         addChild(fc)
         let sVC = fc.start()
-        self.storageViewController = sVC
         
         mainNavController.navigationBar.isHidden = false
-        sVC.title = "test"
         
         mainNavController.pushViewController(sVC, animated: true)
     }
@@ -65,5 +64,7 @@ extension MainFlow: UserProfileScreenNavigationDelegate {
 extension MainFlow: StorageControllerDelegate {
     func navigateUp() {
         mainNavController.navigationBar.isHidden = true
+        removeChild(self.storageFlow!)
+        storageFlow = nil
     }
 }
